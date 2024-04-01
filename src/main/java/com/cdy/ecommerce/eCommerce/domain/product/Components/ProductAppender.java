@@ -1,6 +1,7 @@
 package com.cdy.ecommerce.eCommerce.domain.product.Components;
 
 import com.cdy.ecommerce.eCommerce.api.product.ProductDTO;
+import com.cdy.ecommerce.eCommerce.domain.member.Models.Member;
 import com.cdy.ecommerce.eCommerce.domain.product.Models.Product;
 import com.cdy.ecommerce.eCommerce.domain.product.infrastructure.IProductJpaRepository;
 import lombok.AllArgsConstructor;

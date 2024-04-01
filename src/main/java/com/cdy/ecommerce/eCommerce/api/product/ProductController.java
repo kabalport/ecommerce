@@ -28,12 +28,11 @@ public class ProductController {
    * @return
    */
   @GetMapping("/{pno}")
-  public Product getOne(@PathVariable(name = "pno") Long pno) {
+  public ProductDTO getOne(@PathVariable(name = "pno") Long pno) {
 
     return productService.getOne(pno);
 
   }
-
 
 
 

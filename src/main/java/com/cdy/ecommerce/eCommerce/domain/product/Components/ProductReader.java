@@ -14,14 +14,8 @@ public class ProductReader {
     private final IProductJpaRepository productRepository;
 
 
-    public Product read(Long pno) {
-        // 상품존재유무
-        Optional<Product> product = productRepository.selectOne(pno);
-        Product result = product.orElseThrow();
-        return result;
-    }
 
-    public ProductDTO readDto(Long pno) {
+    public ProductDTO read(Long pno) {
         // 상품존재유무
         Optional<Product> result = productRepository.selectOne(pno);
 

@@ -31,9 +31,9 @@ public class ProductService{
    * @param pno
    * @return
    */
-  public Product getOne(Long pno) {
+  public ProductDTO getOne(Long pno){
     // 상품 하나를 조회합니다.
-    Product product = productReader.read(pno);
+    ProductDTO product = productReader.read(pno);
     // 조회한 상품을 반환합니다.
     return product;
   }
