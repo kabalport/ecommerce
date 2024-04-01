@@ -1,13 +1,14 @@
-package net.dodoinfo.sbserver.domain;
+package com.cdy.ecommerce;
 
+import com.cdy.ecommerce.eCommerce.domain.member.Member;
+import com.cdy.ecommerce.eCommerce.domain.member.MemberRepository;
+import com.cdy.ecommerce.eCommerce.domain.member.MemberRole;
 import lombok.extern.log4j.Log4j2;
-import net.dodoinfo.sbserver.domain.member.domain.Member;
-import net.dodoinfo.sbserver.domain.member.domain.MemberRole;
-import net.dodoinfo.sbserver.domain.member.repository.MemberRepository;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 @SpringBootTest
 @Log4j2
@@ -15,7 +16,6 @@ public class MemberRepositoryTests {
 
   @Autowired private MemberRepository memberRepository;
 
-  @Autowired private PasswordEncoder passwordEncoder;
 
   @Test
   public void testInsertMember() {
@@ -24,9 +24,9 @@ public class MemberRepositoryTests {
 
       Member member =
           Member.builder()
-              .email("user" + i + "@aaa.com")
-              .pw(passwordEncoder.encode("1111"))
-              .nickname("USER" + i)
+              .userId("user" + i)
+              .pw("1111")
+              .nickname("nickname" + i)
               .build();
 
       member.addRole(MemberRole.USER);

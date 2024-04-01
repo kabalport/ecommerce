@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.domain.point;
+package com.cdy.ecommerce.eCommerce.domain.point;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

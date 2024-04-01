@@ -1,9 +1,8 @@
-package com.cdy.ecommerce.eCommerce.domain.product.business;
+package com.cdy.ecommerce.eCommerce.domain.product.model;
 
+import com.cdy.ecommerce.eCommerce.domain.product.exception.ProductException;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import lombok.*;
 
 import org.hibernate.annotations.ColumnDefault;
@@ -46,7 +45,7 @@ public class Product {
             throw new ProductException("수량이 떨어졌습니다.");
         }
   }
-  
+
   public void changePrice(int price) {
     this.price = price;
   }

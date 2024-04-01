@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.domain.point.business.repository;
+package com.cdy.ecommerce.eCommerce.domain.point.business.repository;
 
 import net.dodoinfo.sbserver.domain.eCommerce.domain.point.business.entity.PointHistory;
 import net.dodoinfo.sbserver.domain.eCommerce.domain.point.business.TransactionType;

@@ -1,21 +1,16 @@
-package com.cdy.ecommerce.api.product;
+package com.cdy.ecommerce.eCommerce.api.product;
 
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import com.cdy.ecommerce.domain.product.business.Product;
-import com.cdy.ecommerce.domain.product.business.ProductService;
+import com.cdy.ecommerce.eCommerce.domain.product.model.Product;
+import com.cdy.ecommerce.eCommerce.domain.product.business.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,8 +28,8 @@ public class ProductController {
    * @param pno
    * @return
    */
-  @GetMapping("/read/{pno}")
-  public Product readOne(@PathVariable(name = "pno") Long pno) {
+  @GetMapping("/{pno}")
+  public Product getOne(@PathVariable(name = "pno") Long pno) {
     return productService.getOne(pno);
   }
 

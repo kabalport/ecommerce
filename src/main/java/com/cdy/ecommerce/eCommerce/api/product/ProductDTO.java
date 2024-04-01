@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.api.product;
+package com.cdy.ecommerce.eCommerce.api.product;
 
 import java.util.*;
 import lombok.*;
@@ -16,11 +16,6 @@ public class ProductDTO {
 
   private int price;
 
-  private String pdesc;
-
   private boolean delFlag;
 
-  @Builder.Default private List<MultipartFile> files = new ArrayList<>();
-
-  @Builder.Default private List<String> uploadFileNames = new ArrayList<>();
 }

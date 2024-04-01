@@ -1,2 +1,4 @@
-package com.cdy.ecommerce.eCommerce.domain.product.business;public class MemberReader {
+package com.cdy.ecommerce.eCommerce.domain.product.business;
+
+public class MemberReader {
 }

@@ -1,7 +1,8 @@
-package com.cdy.ecommerce.domain.product.business;
+package com.cdy.ecommerce.eCommerce.domain.product.business;
 
 import java.util.Optional;
 
+import com.cdy.ecommerce.eCommerce.domain.product.model.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;

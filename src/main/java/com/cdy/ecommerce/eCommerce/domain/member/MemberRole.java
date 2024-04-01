@@ -1,4 +1,4 @@
-package net.dodoinfo.sbserver.domain.member.domain;
+package com.cdy.ecommerce.eCommerce.domain.member;
 
 public enum MemberRole {
   USER,

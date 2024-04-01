@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.domain.product.application;
+package com.cdy.ecommerce.eCommerce.domain.product.application;
 
 public class ProductCommand {
 }

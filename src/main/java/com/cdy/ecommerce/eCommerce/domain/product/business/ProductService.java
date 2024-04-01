@@ -1,8 +1,9 @@
 package com.cdy.ecommerce.eCommerce.domain.product.business;
 
-import java.util.List;
 import java.util.Optional;
 import com.cdy.ecommerce.eCommerce.api.product.ProductDTO;
+import com.cdy.ecommerce.eCommerce.domain.member.Member;
+import com.cdy.ecommerce.eCommerce.domain.product.model.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -12,59 +13,29 @@ import org.springframework.transaction.annotation.Transactional;
 @Log4j2
 @RequiredArgsConstructor
 @Transactional
-public class ProductServiceImpl implements ProductService {
-
+public class ProductService{
   private final IProductJpaRepository IProductJpaRepository;
+  private final ProductReader productReader;
 
-  @Override
+  private final MemberReader memberReader;
+
+  /**
+   * 상품 조회기능
+   * @param pno
+   * @return
+   */
   public Product getOne(Long pno) {
-    Optional<Product> result = IProductJpaRepository.selectOne(pno);
-
-    Product product = result.orElseThrow();
-
+    // 상품존재유무
+    Product product = productReader.read(pno);
     return product;
   }
 
-  @Override
-  public ProductDTO get(Long pno) {
-
-    Optional<Product> result = IProductJpaRepository.selectOne(pno);
-
-    Product product = result.orElseThrow();
-
-    ProductDTO productDTO = entityToDTO(product);
-
-    return productDTO;
-  }
-  private ProductDTO entityToDTO(Product product) {
-
-    ProductDTO productDTO =
-            ProductDTO.builder()
-                    .pno(product.getPno())
-                    .pname(product.getPname())
-                    .pdesc(product.getPdesc())
-                    .price(product.getPrice())
-                    .build();
-
-    List<ProductImage> imageList = product.getImageList();
-
-    if (imageList == null || imageList.size() == 0) {
-      return productDTO;
-    }
-
-    List<String> fileNameList =
-            imageList.stream().map(productImage -> productImage.getFileName()).toList();
-
-    productDTO.setUploadFileNames(fileNameList);
-
-    return productDTO;
-  }
 
 
 
-  @Override
   public Long register(ProductDTO productDTO) {
-
+// 사용자테이블에서 사용자 읽어오기-아직구현안됨.아직무시하기.
+//    Member member = memberReader.read()
     Product product = dtoToEntity(productDTO);
 
     Product result = IProductJpaRepository.save(product);
@@ -73,65 +44,10 @@ public class ProductServiceImpl implements ProductService {
   }
 
   private Product dtoToEntity(ProductDTO productDTO) {
-
-    Product product =
-        Product.builder()
-            .pno(productDTO.getPno())
-            .pname(productDTO.getPname())
-            .pdesc(productDTO.getPdesc())
-            .price(productDTO.getPrice())
-            .build();
-
-    // 업로드 처리가 끝난 파일들의 이름 리스트
-    List<String> uploadFileNames = productDTO.getUploadFileNames();
-
-    if (uploadFileNames == null) {
-      return product;
-    }
-
-    uploadFileNames.stream()
-        .forEach(
-            uploadName -> {
-              product.addImageString(uploadName);
-            });
-
-    return product;
+    return null;
   }
 
 
-
-
-
-
-  @Override
-  public void modify(ProductDTO productDTO) {
-
-    // step1 read
-    Optional<Product> result = IProductJpaRepository.findById(productDTO.getPno());
-
-    Product product = result.orElseThrow();
-
-    // change pname, pdesc, price
-    product.changeName(productDTO.getPname());
-    product.changeDesc(productDTO.getPdesc());
-    product.changePrice(productDTO.getPrice());
-
-    // upload File -- clear first
-    product.clearList();
-
-    List<String> uploadFileNames = productDTO.getUploadFileNames();
-
-    if (uploadFileNames != null && uploadFileNames.size() > 0) {
-      uploadFileNames.stream()
-          .forEach(
-              uploadName -> {
-                product.addImageString(uploadName);
-              });
-    }
-    IProductJpaRepository.save(product);
-  }
-
-  @Override
   public void remove(Long pno) {
 
     IProductJpaRepository.updateToDelete(pno, true);

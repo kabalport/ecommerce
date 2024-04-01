@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.eCommerce.domain;
+package com.cdy.ecommerce.eCommerce.domain.member;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -9,6 +9,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -16,18 +17,19 @@ import java.util.List;
 @Getter
 public class Member {
   @Id
-  private String email;
+  private String userId;
 
   private String pw;
 
   private String nickname;
 
-  public void changeNickname(String nickname) {
-    this.nickname = nickname;
-  }
+  @ElementCollection(fetch = FetchType.LAZY)
+  @Builder.Default
+  private List<MemberRole> memberRoleList = new ArrayList<>();
 
-  public void changePw(String pw) {
-    this.pw = pw;
+  public void addRole(MemberRole memberRole) {
+
+    memberRoleList.add(memberRole);
   }
 
 }

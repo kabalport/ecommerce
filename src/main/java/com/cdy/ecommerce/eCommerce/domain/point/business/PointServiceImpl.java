@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.domain.point.business;
+package com.cdy.ecommerce.eCommerce.domain.point.business;
 
 
 import net.dodoinfo.sbserver.domain.eCommerce.api.point.UserPointResponse;
