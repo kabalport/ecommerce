@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PointService {
-    /**
+/**
     private static final Logger logger = LoggerFactory.getLogger(PointService.class);
 
     private final UserPointJpaRepository userPointRepository;
@@ -142,6 +142,6 @@ public class PointService {
     }
 
     /
-     **/
+**/
 }
 
