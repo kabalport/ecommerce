@@ -1,23 +1,21 @@
-package com.cdy.ecommerce.eCommerce.domain.product.Components;
+package com.cdy.ecommerce.eCommerce.domain.product.business.Components;
 
-import com.cdy.ecommerce.eCommerce.api.product.ProductDTO;
-import com.cdy.ecommerce.eCommerce.domain.product.infrastructure.IProductJpaRepository;
-import com.cdy.ecommerce.eCommerce.domain.product.Models.Product;
+import com.cdy.ecommerce.eCommerce.api.product.dto.ProductDTO;
+import com.cdy.ecommerce.eCommerce.domain.product.business.Repositories.ProductReaderRepository;
+import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Optional;
 @Component
 @AllArgsConstructor
 public class ProductReader {
-    private final IProductJpaRepository productRepository;
-
-
+//    private final IProductJpaRepository productRepository;
+    private final ProductReaderRepository productReaderRepository;
 
     public ProductDTO read(Long pno) {
         // 상품존재유무
-        Optional<Product> result = productRepository.selectOne(pno);
+        Optional<Product> result = productReaderRepository.selectOne(pno);
 
         Product product = result.orElseThrow();
 

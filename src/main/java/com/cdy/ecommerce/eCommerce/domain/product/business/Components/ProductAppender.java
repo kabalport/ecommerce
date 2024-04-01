@@ -1,19 +1,16 @@
-package com.cdy.ecommerce.eCommerce.domain.product.Components;
+package com.cdy.ecommerce.eCommerce.domain.product.business.Components;
 
-import com.cdy.ecommerce.eCommerce.api.product.ProductDTO;
-import com.cdy.ecommerce.eCommerce.domain.member.Models.Member;
-import com.cdy.ecommerce.eCommerce.domain.product.Models.Product;
-import com.cdy.ecommerce.eCommerce.domain.product.infrastructure.IProductJpaRepository;
+import com.cdy.ecommerce.eCommerce.api.product.dto.ProductDTO;
+import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
+import com.cdy.ecommerce.eCommerce.domain.product.business.Repositories.ProductAppendRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 
 @Component
 @AllArgsConstructor
 public class ProductAppender {
-    private final IProductJpaRepository productRepository;
+    private final ProductAppendRepository productRepository;
 
     public Product append(ProductDTO productDTO) {
         // 상품존재유무

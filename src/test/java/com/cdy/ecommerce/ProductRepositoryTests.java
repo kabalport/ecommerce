@@ -4,8 +4,8 @@ package com.cdy.ecommerce;
 import java.util.Arrays;
 import java.util.Optional;
 
-import com.cdy.ecommerce.eCommerce.domain.product.infrastructure.IProductJpaRepository;
-import com.cdy.ecommerce.eCommerce.domain.product.Models.Product;
+import com.cdy.ecommerce.eCommerce.domain.product.business.Repositories.ProductReaderRepository;
+import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,7 +24,7 @@ import lombok.extern.log4j.Log4j2;
 public class ProductRepositoryTests {
 
     @Autowired
-    IProductJpaRepository productRepository;
+    ProductReaderRepository productRepository;
 
     @Test
     public void testInsert() {

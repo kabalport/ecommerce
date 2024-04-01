@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.eCommerce.api.product;
+package com.cdy.ecommerce.eCommerce.api.product.dto;
 
 import java.util.*;
 import lombok.*;
@@ -17,7 +17,5 @@ public class ProductDTO {
   private int price;
 
   private int stock;
-
-  private boolean delFlag;
 
 }
