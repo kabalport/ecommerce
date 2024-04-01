@@ -1,6 +1,5 @@
 package com.cdy.ecommerce.eCommerce.api.product;
 
-import java.util.Map;
 
 import com.cdy.ecommerce.eCommerce.domain.product.Models.Product;
 import com.cdy.ecommerce.eCommerce.domain.product.business.ProductService;
@@ -30,20 +29,12 @@ public class ProductController {
    */
   @GetMapping("/{pno}")
   public Product getOne(@PathVariable(name = "pno") Long pno) {
+
     return productService.getOne(pno);
+
   }
 
-  /**
-   * 상품 등록 API
-   * @param productDTO
-   * @return
-   */
-  @PostMapping("/")
-  public Map<String, Long> register(ProductDTO productDTO,Long memberId) {
-    // 서비스 호출
-    Long pno = productService.register(productDTO,memberId);
-    return Map.of("result", pno);
-  }
+
 
 
 }

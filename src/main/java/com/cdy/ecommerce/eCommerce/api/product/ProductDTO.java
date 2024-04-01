@@ -16,6 +16,8 @@ public class ProductDTO {
 
   private int price;
 
+  private int stock;
+
   private boolean delFlag;
 
 }

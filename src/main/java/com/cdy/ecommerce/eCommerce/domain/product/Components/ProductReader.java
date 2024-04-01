@@ -3,20 +3,47 @@ package com.cdy.ecommerce.eCommerce.domain.product.Components;
 import com.cdy.ecommerce.eCommerce.api.product.ProductDTO;
 import com.cdy.ecommerce.eCommerce.domain.product.infrastructure.IProductJpaRepository;
 import com.cdy.ecommerce.eCommerce.domain.product.Models.Product;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 @Component
+@AllArgsConstructor
 public class ProductReader {
-    private IProductJpaRepository productRepository;
+    private final IProductJpaRepository productRepository;
+
 
     public Product read(Long pno) {
+        // 상품존재유무
         Optional<Product> product = productRepository.selectOne(pno);
-//        ProductDTO productDTO = entityToDTO(product);
-        return product.orElseThrow(() -> new IllegalArgumentException("Product not found for id: " + pno));
+        Product result = product.orElseThrow();
+        return result;
+    }
+
+    public ProductDTO readDto(Long pno) {
+        // 상품존재유무
+        Optional<Product> result = productRepository.selectOne(pno);
+
+        Product product = result.orElseThrow();
+
+        ProductDTO productDTO = entityToDTO(product);
+
+        return productDTO;
     }
 
     private ProductDTO entityToDTO(Product product) {
-        return null;
+
+        ProductDTO productDTO =
+                ProductDTO.builder()
+                        .pno(product.getPno())
+                        .pname(product.getPname())
+                        .price(product.getPrice())
+                        .stock(product.getStock())
+                        .build();
+
+        return productDTO;
     }
+
+
 }
