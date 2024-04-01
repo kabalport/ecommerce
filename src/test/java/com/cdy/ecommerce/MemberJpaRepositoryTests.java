@@ -1,8 +1,8 @@
 package com.cdy.ecommerce;
 
-import com.cdy.ecommerce.eCommerce.domain.member.Member;
-import com.cdy.ecommerce.eCommerce.domain.member.MemberRepository;
-import com.cdy.ecommerce.eCommerce.domain.member.MemberRole;
+import com.cdy.ecommerce.eCommerce.domain.member.Models.Member;
+import com.cdy.ecommerce.eCommerce.domain.member.infrastructure.MemberJpaRepository;
+import com.cdy.ecommerce.eCommerce.domain.member.Models.MemberRole;
 import lombok.extern.log4j.Log4j2;
 
 import org.junit.jupiter.api.Test;
@@ -12,9 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Log4j2
-public class MemberRepositoryTests {
+public class MemberJpaRepositoryTests {
 
-  @Autowired private MemberRepository memberRepository;
+  @Autowired
+  private MemberJpaRepository memberJpaRepository;
 
 
   @Test
@@ -38,16 +39,16 @@ public class MemberRepositoryTests {
       if (i >= 8) {
         member.addRole(MemberRole.ADMIN);
       }
-      memberRepository.save(member);
+      memberJpaRepository.save(member);
     }
   }
 
   @Test
   public void testRead() {
 
-    String email = "user9@aaa.com";
+    Long firstUser = 1L;
 
-    Member member = memberRepository.getWithRoles(email);
+    Member member = memberJpaRepository.getWithRoles(firstUser);
 
     log.info("-----------------");
     log.info(member);

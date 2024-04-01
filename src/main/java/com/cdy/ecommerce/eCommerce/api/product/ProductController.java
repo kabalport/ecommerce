@@ -2,7 +2,7 @@ package com.cdy.ecommerce.eCommerce.api.product;
 
 import java.util.Map;
 
-import com.cdy.ecommerce.eCommerce.domain.product.model.Product;
+import com.cdy.ecommerce.eCommerce.domain.product.Models.Product;
 import com.cdy.ecommerce.eCommerce.domain.product.business.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -39,9 +39,9 @@ public class ProductController {
    * @return
    */
   @PostMapping("/")
-  public Map<String, Long> register(ProductDTO productDTO) {
+  public Map<String, Long> register(ProductDTO productDTO,Long memberId) {
     // 서비스 호출
-    Long pno = productService.register(productDTO);
+    Long pno = productService.register(productDTO,memberId);
     return Map.of("result", pno);
   }
 

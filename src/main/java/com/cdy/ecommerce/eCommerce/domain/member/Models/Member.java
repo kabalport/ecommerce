@@ -1,9 +1,6 @@
-package com.cdy.ecommerce.eCommerce.domain.member;
+package com.cdy.ecommerce.eCommerce.domain.member.Models;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -15,8 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@ToString(exclude = "memberRoleList")
 public class Member {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long memberId;
+
   private String userId;
 
   private String pw;

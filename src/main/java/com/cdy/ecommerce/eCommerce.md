@@ -1,3 +1,44 @@
+```
+admin/
+	도메인/
+		view/
+		usecase/
+			- ModifyLectureUseCase
+			- GetMyApplicationsUseCase
+				// 강의 목록 + 보여주는 정보가 더 많음.
+			- GetLecturesUseCase
+api/
+  도메인/
+	  controller
+	  dto/
+		  // request 객체 - 무조건 필요 ( 우리가 제공하는 Controller 기능 수 만큼 )
+		  (request, response models)
+	  usecase/
+		  (Usecase = 각 비즈니스에 맞춰 component 조립)
+			  // 사용자가 수강신청을 하는 기능
+		  - ApplyLectureUseCase(lectureReader, userReader, applicationManager)
+			  - execute()
+			  // 강의 목록을 조회하는 기능
+		  - GetLecturesUseCase
+			  - execute()
+domain/
+	도메인/ (user, lecture, comment, ...)
+		(Models)
+		- Lecture
+		- ApplicationHistory
+		(Components)
+		- LectureReader
+		- LectureModifier
+		- ApplicationManager
+		(Repositories)
+		- LectureReaderRepository (I/F)
+		- LectureStoreRepository (I/F)
+		infrastructure/
+			- LectureCoreReaderRepository (IMPL)
+			- LectureCoreStoreRepository (IMPL)
+			- LectureJpaRepository (JPA)
+			- LectureCustomRepository (QueryDSL)
+```
 - 포인트를 충전한다.
 - 포인트를 조회한다.
 - 상품들을 조회한다.
