@@ -48,9 +48,9 @@ public class ProductRepositoryTests {
     @Test
     public void testRead() {
 
-        Long pno = 1L;
+        Long id = 1L;
 
-        Optional<Product> result = productRepository.selectOne(pno);
+        Optional<Product> result = productRepository.selectOne(id);
 
         Product product = result.orElseThrow();
 
@@ -62,9 +62,9 @@ public class ProductRepositoryTests {
     @Test
     public void testRead2() {
 
-        Long pno = 1L;
+        Long id = 1L;
 
-        Optional<Product> result = productRepository.selectOne(pno);
+        Optional<Product> result = productRepository.selectOne(id);
 
         Product product = result.orElseThrow();
 
@@ -78,18 +78,18 @@ public class ProductRepositoryTests {
     @Test
     public void testDelte() {
 
-        Long pno = 2L;
+        Long id = 2L;
 
-        productRepository.updateToDelete(pno, true);
+        productRepository.updateToDelete(id, true);
 
     }
 
     @Test
     public void testUpdate(){
 
-        Long pno = 10L;
+        Long id = 10L;
 
-        Product product = productRepository.selectOne(pno).get();
+        Product product = productRepository.selectOne(id).get();
 
         product.changeName("10번 상품");
         product.changePrice(5000);
@@ -103,7 +103,7 @@ public class ProductRepositoryTests {
     public void testList() {
 
         //org.springframework.data.domain 패키지
-        Pageable pageable = PageRequest.of(0, 10, Sort.by("pno").descending());
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("id").descending());
 
         Page<Object[]> result = productRepository.selectList(pageable);
 

@@ -21,12 +21,12 @@ public class RegisterProductUseCase {
      * @param memberId
      * @return
      */
-    public Long execute(ProductDTO productDTO, Long memberId) {
+    public Long execute(ProductDTO.Request productDTO, Long memberId) {
         // 사용자를 읽어옵니다.
 //        Member member = memberReader.read(memberId);
         // 상품을 추가합니다.
         Product product = productAppeder.append(productDTO);
         // 추가한 상품번호를 반환합니다.
-        return product.getPno();
+        return product.getId();
     }
 }

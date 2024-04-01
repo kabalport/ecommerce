@@ -14,12 +14,12 @@ public class GetProductUseCase {
 
     /**
      * 상품 조회기능
-     * @param pno
+     * @param id
      * @return
      */
-    public ProductDTO execute(Long pno){
+    public ProductDTO.Response execute(Long id){
         // 상품 하나를 조회합니다.
-        ProductDTO product = productReader.read(pno);
+        ProductDTO.Response product = productReader.read(id);
         // 조회한 상품을 반환합니다.
         return product;
     }

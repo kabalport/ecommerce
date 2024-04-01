@@ -1,21 +1,28 @@
 package com.cdy.ecommerce.eCommerce.api.product.dto;
 
-import java.util.*;
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class ProductDTO {
 
-  private Long pno;
+  @Data
+  @Builder
+  @AllArgsConstructor
+  @NoArgsConstructor
+  public static class Request {
+    private String pname;
+    private int price;
+    private int stock;
+  }
 
-  private String pname;
-
-  private int price;
-
-  private int stock;
-
+  @Data
+  @Builder
+  @AllArgsConstructor
+  @NoArgsConstructor
+  public static class Response {
+    private Long id;
+    private String pname;
+    private int price;
+    private int stock;
+  }
 }
