@@ -34,7 +34,7 @@ public class PointController {
      * @param request
      * @return
      */
-    @PostMapping("/{memberId}/charge")
+    @PatchMapping("/{memberId}/charge")
     public PointDTO.Response charge(@PathVariable long memberId, @RequestBody PointDTO.Request request) {
        PointDTO.Response response = chargeUserPointUseCase.execute(memberId,request);
        return response;
