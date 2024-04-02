@@ -9,6 +9,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Log4j2
 @RequestMapping("/api/admin/products")
-public class ProductAdminController {
-
-}
+public class ProductAdminController {}

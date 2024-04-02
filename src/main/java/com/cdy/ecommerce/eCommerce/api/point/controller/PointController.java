@@ -15,6 +15,7 @@ public class PointController {
     private final GetUserPointUseCase getUserPointUseCase;
 
     private final ChargeUserPointUseCase chargeUserPointUseCase;
+
     /**
      * 잔액 조회 API
      * 사용자 식별자를 통해 해당 사용자의 잔액을 조회합니다.
@@ -25,6 +26,7 @@ public class PointController {
     public PointDTO.Response point(@PathVariable long memberId){
         return getUserPointUseCase.execute(memberId);
     }
+
     /**
      * 잔액 충전 API
      * 사용자 식별자 및 충전할 금액을 받아 잔액을 충전합니다.
@@ -32,7 +34,7 @@ public class PointController {
      * @param request
      * @return
      */
-    @PatchMapping("{memberId}/charge")
+    @PostMapping("/{memberId}/charge")
     public PointDTO.Response charge(@PathVariable long memberId, @RequestBody PointDTO.Request request) {
        PointDTO.Response response = chargeUserPointUseCase.execute(memberId,request);
        return response;

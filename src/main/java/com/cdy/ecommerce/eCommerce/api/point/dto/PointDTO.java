@@ -4,7 +4,6 @@ import lombok.*;
 
 public class PointDTO {
     @Getter
-    @AllArgsConstructor
     public static class Request {
         private long amount;
     }
@@ -12,27 +11,9 @@ public class PointDTO {
     @Builder
     @Getter
     public static class Response {
-        private long id;
         private long point;
 
-        public Response(long id, long point) {
-            this.id = id;
-            this.point = point;
-        }
-
-        public long getId() {
-            return id;
-        }
-
-        public void setId(long id) {
-            this.id = id;
-        }
-
-        public long getPoint() {
-            return point;
-        }
-
-        public void setPoint(long point) {
+        public Response(long point) {
             this.point = point;
         }
     }

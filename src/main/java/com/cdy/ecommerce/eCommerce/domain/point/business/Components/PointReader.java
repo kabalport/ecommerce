@@ -15,9 +15,9 @@ public class PointReader {
 
     private final UserPointReaderRepository userPointReaderRepository;
 
-    public PointDTO.Response read(Long id) {
+    public PointDTO.Response read(Long memberId) {
         // 포인트존재유무
-        Optional<UserPoint> result = userPointReaderRepository.selectOne(id);
+        Optional<UserPoint> result = userPointReaderRepository.selectOne(memberId);
 
         UserPoint userPoint = result.orElseThrow();
 
@@ -31,7 +31,6 @@ public class PointReader {
 
         PointDTO.Response pointDTO =
                 PointDTO.Response.builder()
-                        .id(userPoint.getId())
                         .point(userPoint.getPoint())
                         .build();
 
