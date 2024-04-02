@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.eCommerce.global.exception;
+package com.cdy.ecommerce.eCommerce.domain.common.exception;
 
 public class ProductException extends RuntimeException {
     public ProductException(String message) {

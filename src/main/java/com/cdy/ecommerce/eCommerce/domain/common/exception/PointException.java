@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.eCommerce.global.exception;
+package com.cdy.ecommerce.eCommerce.domain.common.exception;
 
 public class PointException extends RuntimeException {
 
