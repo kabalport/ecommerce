@@ -1,13 +1,9 @@
 package com.cdy.ecommerce.eCommerce.domain.point.business.Components;
 
 import com.cdy.ecommerce.eCommerce.api.point.dto.PointDTO;
-import com.cdy.ecommerce.eCommerce.api.product.dto.ProductDTO;
-import com.cdy.ecommerce.eCommerce.domain.point.application.exception.PointException;
+import com.cdy.ecommerce.eCommerce.global.exception.PointException;
 import com.cdy.ecommerce.eCommerce.domain.point.business.Models.UserPoint;
 import com.cdy.ecommerce.eCommerce.domain.point.business.Repositories.UserPointChargerRepository;
-import com.cdy.ecommerce.eCommerce.domain.point.business.Repositories.UserPointReaderRepository;
-import com.cdy.ecommerce.eCommerce.domain.point.infrastructure.UserPointJpaRepository;
-import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
