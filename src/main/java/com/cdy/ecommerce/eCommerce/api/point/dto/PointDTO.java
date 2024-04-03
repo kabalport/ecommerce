@@ -5,8 +5,8 @@ import lombok.*;
 public class PointDTO {
     @Getter
     public static class Request {
-        private String userId;
-        private long amount;
+        private Long memberId;
+        private Long amount;
     }
 
     @Builder

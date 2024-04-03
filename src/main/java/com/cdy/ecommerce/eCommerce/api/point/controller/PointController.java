@@ -3,7 +3,9 @@ package com.cdy.ecommerce.eCommerce.api.point.controller;
 import com.cdy.ecommerce.eCommerce.api.point.dto.PointDTO;
 import com.cdy.ecommerce.eCommerce.api.point.usecase.ChargeUserPointUseCase;
 import com.cdy.ecommerce.eCommerce.api.point.usecase.GetUserPointUseCase;
+import com.cdy.ecommerce.eCommerce.api.product.dto.ProductDTO;
 import com.cdy.ecommerce.eCommerce.domain.point.business.Models.UserPoint;
+import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +31,24 @@ public class PointController {
         return entityToDTO(userPoint);
     }
 
+    /**
+     * 잔액 충전 API
+     * 사용자 식별자 및 충전할 금액을 받아 잔액을 충전합니다.
+     */
+    @PatchMapping("/charge")
+    public PointDTO.Response chargePoint(@RequestBody PointDTO.Request request) {
+        UserPoint response = chargeUserPointUseCase.execute(request);
+        PointDTO.Response result = PointDTO.Response.builder().point(response.getPoint()).build();
+        return result;
+    }
+
+//    @PatchMapping("/use")
+//    public PointDTO.Response use(@PathVariable long memberId, @RequestBody PointDTO.Request request) {
+//        PointDTO.Response response = chargeUserPointUseCase.execute(memberId,request);
+//        return response;
+//    }
+
+
     private PointDTO.Response entityToDTO(UserPoint userPoint) {
 
         PointDTO.Response pointDTO =
@@ -39,40 +59,13 @@ public class PointController {
         return pointDTO;
     }
 
+    private UserPoint dtoToEntity(PointDTO.Request pointDTO) {
 
-//    @GetMapping("/test/{memberId}")
-//    public PointDTO.Response point(@PathVariable long memberId){
-//        return getUserPointUseCase.execute(memberId);
-//    }
+        UserPoint userPoint =
+                UserPoint.builder()
+                        .point(pointDTO.getAmount())
+                        .build();
 
-    /**
-     * 잔액 충전 API
-     * 사용자 식별자 및 충전할 금액을 받아 잔액을 충전합니다.
-     * @param memberId
-     * @param request
-     * @return
-     */
-    @PatchMapping("/{memberId}/charge")
-    public PointDTO.Response charge(@PathVariable long memberId, @RequestBody PointDTO.Request request) {
-       PointDTO.Response response = chargeUserPointUseCase.execute(memberId,request);
-       return response;
+        return userPoint;
     }
-
-    @PatchMapping("/charge2")
-    public PointDTO.Response charge2(@RequestBody PointDTO.Request request) {
-        UserPoint response = chargeUserPointUseCase.execute2(request);
-
-        PointDTO.Response result = PointDTO.Response.builder().point(response.getPoint()).build();
-
-        return result;
-    }
-
-
-
-    @PatchMapping("/{memberId}/use")
-    public PointDTO.Response use(@PathVariable long memberId, @RequestBody PointDTO.Request request) {
-        PointDTO.Response response = chargeUserPointUseCase.execute(memberId,request);
-        return response;
-    }
-
 }
