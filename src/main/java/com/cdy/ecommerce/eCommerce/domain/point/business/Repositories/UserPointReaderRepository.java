@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface UserPointReaderRepository extends UserPointJpaRepository {
     @Query("select p from UserPoint p where p.id = :id")
     Optional<UserPoint> selectOne(@Param("id") Long id);
-
+    @Query("select up from UserPoint up where up.memberId = :memberId")
+    Optional<UserPoint> selectUserPoint(Long memberId);
 }

@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.eCommerce.domain.cart;
+package com.cdy.ecommerce.eCommerce.domain.cart.business.Models;
 
 import com.cdy.ecommerce.eCommerce.domain.member.business.Models.Member;
 import jakarta.persistence.*;
@@ -12,7 +12,7 @@ import lombok.*;
 @Getter
 @ToString(exclude = "owner")
 @Table(
-    name = "tbl_cart",
+    name = "ecommerce_cart",
     indexes = {@Index(name = "idx_cart_userId", columnList = "member_owner")})
 public class Cart {
 

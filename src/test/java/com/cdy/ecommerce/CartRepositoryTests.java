@@ -1,7 +1,10 @@
 package com.cdy.ecommerce;
 
 import com.cdy.ecommerce.eCommerce.api.cart.dto.CartItemListDTO;
-import com.cdy.ecommerce.eCommerce.domain.cart.*;
+import com.cdy.ecommerce.eCommerce.domain.cart.business.Models.Cart;
+import com.cdy.ecommerce.eCommerce.domain.cart.business.Models.CartItem;
+import com.cdy.ecommerce.eCommerce.domain.cart.business.Repositories.CartItemRepository;
+import com.cdy.ecommerce.eCommerce.domain.cart.business.Repositories.CartRepository;
 import com.cdy.ecommerce.eCommerce.domain.member.business.Models.Member;
 import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
 import jakarta.transaction.Transactional;

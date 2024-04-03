@@ -24,4 +24,14 @@ public class UserPoint{
 
     private Long updateMillis;
 
+    // UserPoint 클래스 내에 추가
+    public static UserPoint empty(Long memberId) {
+        return UserPoint.builder()
+                .memberId(memberId)
+                .point(0L)
+                .updateMillis(System.currentTimeMillis()) // 현재 시간으로 설정
+                .build();
+    }
+
+
 }

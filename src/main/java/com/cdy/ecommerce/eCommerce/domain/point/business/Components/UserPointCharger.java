@@ -18,6 +18,14 @@ public class UserPointCharger {
     private final ConcurrentHashMap<Long, Lock> locks = new ConcurrentHashMap<>();
     private final UserPointChargerRepository userPointChargerRepository;
 
+    public UserPoint charge2(PointDTO.Request request) {
+
+//        Optional<UserPoint> currentPointOptional = userPointChargerRepository.findById(memberId);
+
+        return null;
+    }
+
+
     public PointDTO.Response charge(Long memberId, PointDTO.Request request) {
         Lock lock = locks.computeIfAbsent(memberId, k -> new ReentrantLock());
         boolean lockAcquired = lock.tryLock();

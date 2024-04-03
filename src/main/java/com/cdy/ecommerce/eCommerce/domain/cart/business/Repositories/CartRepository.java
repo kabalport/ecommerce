@@ -1,5 +1,6 @@
-package com.cdy.ecommerce.eCommerce.domain.cart;
+package com.cdy.ecommerce.eCommerce.domain.cart.business.Repositories;
 
+import com.cdy.ecommerce.eCommerce.domain.cart.business.Models.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

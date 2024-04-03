@@ -2,7 +2,7 @@ package com.cdy.ecommerce.eCommerce.api.cart.controller;
 
 import com.cdy.ecommerce.eCommerce.api.cart.dto.CartItemDTO;
 import com.cdy.ecommerce.eCommerce.api.cart.dto.CartItemListDTO;
-import com.cdy.ecommerce.eCommerce.domain.cart.CartService;
+import com.cdy.ecommerce.eCommerce.api.cart.CartService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

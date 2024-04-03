@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.eCommerce.domain.cart;
+package com.cdy.ecommerce.eCommerce.api.cart;
 
 import com.cdy.ecommerce.eCommerce.api.cart.dto.CartItemDTO;
 import com.cdy.ecommerce.eCommerce.api.cart.dto.CartItemListDTO;

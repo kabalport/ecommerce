@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.eCommerce.domain.cart;
+package com.cdy.ecommerce.eCommerce.domain.cart.business.Models;
 
 import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
 import jakarta.persistence.*;
@@ -11,10 +11,10 @@ import lombok.*;
 @Builder
 @ToString(exclude = "cart")
 @Table(
-    name = "tbl_cart_item",
+    name = "ecommerce_item",
     indexes = {
       @Index(columnList = "cart_cno", name = "idx_cartitem_cart"),
-      @Index(columnList = "product_pno, cart_cno", name = "idx_cartitem_pno_cart")
+      @Index(columnList = "product_id, cart_cno", name = "idx_cartitem_pno_cart")
     })
 public class CartItem {
 
@@ -23,7 +23,7 @@ public class CartItem {
   private Long cino;
 
   @ManyToOne
-  @JoinColumn(name = "product_pno")
+  @JoinColumn(name = "product_id")
   private Product product;
 
   @ManyToOne
