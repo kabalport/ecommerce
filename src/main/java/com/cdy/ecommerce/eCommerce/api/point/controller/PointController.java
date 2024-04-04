@@ -3,9 +3,7 @@ package com.cdy.ecommerce.eCommerce.api.point.controller;
 import com.cdy.ecommerce.eCommerce.api.point.dto.PointDTO;
 import com.cdy.ecommerce.eCommerce.api.point.usecase.ChargeUserPointUseCase;
 import com.cdy.ecommerce.eCommerce.api.point.usecase.GetUserPointUseCase;
-import com.cdy.ecommerce.eCommerce.api.product.dto.ProductDTO;
 import com.cdy.ecommerce.eCommerce.domain.point.business.Models.UserPoint;
-import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/point")
 public class PointController {
     private final GetUserPointUseCase getUserPointUseCase;
-
     private final ChargeUserPointUseCase chargeUserPointUseCase;
-
     /**
      * 잔액 조회 API
      * 사용자 식별자를 통해 해당 사용자의 잔액을 조회합니다.
@@ -42,12 +38,6 @@ public class PointController {
         return result;
     }
 
-//    @PatchMapping("/use")
-//    public PointDTO.Response use(@PathVariable long memberId, @RequestBody PointDTO.Request request) {
-//        PointDTO.Response response = chargeUserPointUseCase.execute(memberId,request);
-//        return response;
-//    }
-
 
     private PointDTO.Response entityToDTO(UserPoint userPoint) {
 
@@ -59,13 +49,4 @@ public class PointController {
         return pointDTO;
     }
 
-    private UserPoint dtoToEntity(PointDTO.Request pointDTO) {
-
-        UserPoint userPoint =
-                UserPoint.builder()
-                        .point(pointDTO.getAmount())
-                        .build();
-
-        return userPoint;
-    }
 }
