@@ -32,9 +32,9 @@ public class ProductRepositoryTests {
         for (int i = 0; i < 10; i++) {
 
             Product product = Product.builder()
-                    .pname("상품"+i)
+                    .name("상품"+i)
                     .price(100*i)
-                    .stock(100)
+//                    .stock(100)
                     .build();
 
 
