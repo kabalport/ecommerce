@@ -12,8 +12,12 @@
 - 동시성테스트-비관
 
 ## 요구사항분석
-# 흐름도
-![service-flow](./src/main/java/com/cdy/ecommerce/document/diagram/2.service-flow.svg)
+# 흐름도 &시퀀스다이어그램
+![img.png](img.png)
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
 
 ### 포인트
 [포인트 충전]
@@ -95,8 +99,8 @@
 [장바구니 삭제 API]
 - 사용자의 장바구니 상품을 삭제합니다.
 - endpoint : get /api/cart
-  Query Parameters: x
-  Request Body:
+- Query Parameters: x
+- Request Body:
 ```json
 {
 }
