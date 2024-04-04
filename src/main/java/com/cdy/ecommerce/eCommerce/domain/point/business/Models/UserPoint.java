@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "ecommerce_user_point")
 @Getter
@@ -13,23 +15,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserPoint {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_point_id")
-    private Long id;
 
-    @Column(name = "member_id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_point_id")
+    private String id;
+
     private Long memberId;
 
-    @Column(name = "user_point_point")
     private Long point;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "user_point_pointAction")
     private PointAction pointAction;
+
+    // 커스텀 UUID 생성
+    private static String generateCustomUUID(String prefix) {
+        return prefix + "-" + UUID.randomUUID().toString();
+    }
 
     public static UserPoint empty(Long memberId) {
         return UserPoint.builder()
+                .id(generateCustomUUID("CUST")) // 예시 prefix "CUST" 사용
                 .memberId(memberId)
                 .point(0L)
                 .build();

@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @Log4j2
 @RequestMapping("/api/point")
 public class PointController {
+
     private final GetUserPointUseCase getUserPointUseCase;
     private final ChargeUserPointUseCase chargeUserPointUseCase;
+
     /**
      * 잔액 조회 API
      * 사용자 식별자를 통해 해당 사용자의 잔액을 조회합니다.
@@ -34,18 +36,14 @@ public class PointController {
     @PatchMapping("/charge")
     public PointDTO.Response chargePoint(@RequestBody PointDTO.Request request) {
         UserPoint response = chargeUserPointUseCase.execute(request);
-        PointDTO.Response result = PointDTO.Response.builder().point(response.getPoint()).build();
-        return result;
+        return PointDTO.Response.builder().point(response.getPoint()).build();
     }
 
-
     private PointDTO.Response entityToDTO(UserPoint userPoint) {
-
         PointDTO.Response pointDTO =
                 PointDTO.Response.builder()
                         .point(userPoint.getPoint())
                         .build();
-
         return pointDTO;
     }
 

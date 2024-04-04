@@ -5,9 +5,6 @@ import lombok.extern.log4j.Log4j2;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
-import java.util.List;
-
 // 사용자는 구매 이전에 관심 있는 상품들을 장바구니에 적재할 수 있습니다.
 @RestController
 @RequiredArgsConstructor
