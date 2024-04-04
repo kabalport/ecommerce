@@ -17,9 +17,6 @@ public class RegisterProductUseCase {
 
     /**
      * 상품 등록기능
-     * @param productDTO
-     * @param memberId
-     * @return
      */
     public Long execute(ProductDTO.Request productDTO, Long memberId) {
         // 사용자를 읽어옵니다.

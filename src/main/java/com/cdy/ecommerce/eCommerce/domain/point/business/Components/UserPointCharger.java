@@ -1,7 +1,7 @@
 package com.cdy.ecommerce.eCommerce.domain.point.business.Components;
 
 import com.cdy.ecommerce.eCommerce.api.point.dto.PointDTO;
-import com.cdy.ecommerce.eCommerce.common.exception.PointException;
+import com.cdy.ecommerce.eCommerce.domain.common.exception.PointException;
 import com.cdy.ecommerce.eCommerce.domain.point.business.Models.UserPoint;
 import com.cdy.ecommerce.eCommerce.domain.point.business.Repositories.UserPointChargerRepository;
 import lombok.AllArgsConstructor;

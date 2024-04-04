@@ -1,6 +1,5 @@
 package com.cdy.ecommerce.eCommerce.domain.product.business.Models;
 
-import com.cdy.ecommerce.eCommerce.common.exception.ProductException;
 import jakarta.persistence.*;
 import lombok.*;
 
