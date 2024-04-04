@@ -1,8 +1,8 @@
 package com.cdy.ecommerce;
 
-import com.cdy.ecommerce.eCommerce.domain.member.business.Repositories.MemberReaderRepository;
-import com.cdy.ecommerce.eCommerce.domain.member.business.Models.Member;
-import com.cdy.ecommerce.eCommerce.domain.member.business.Models.MemberRole;
+import com.cdy.ecommerce.ecommerce.domain.member.business.Repositories.MemberReaderRepository;
+import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
+import com.cdy.ecommerce.ecommerce.domain.member.business.Models.MemberRole;
 import lombok.extern.log4j.Log4j2;
 
 import org.junit.jupiter.api.Test;

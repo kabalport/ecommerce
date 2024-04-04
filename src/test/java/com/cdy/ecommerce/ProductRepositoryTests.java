@@ -4,8 +4,8 @@ package com.cdy.ecommerce;
 import java.util.Arrays;
 import java.util.Optional;
 
-import com.cdy.ecommerce.eCommerce.domain.product.business.Repositories.ProductReaderRepository;
-import com.cdy.ecommerce.eCommerce.domain.product.business.Models.Product;
+import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.ProductReaderRepository;
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

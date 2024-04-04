@@ -1,7 +1,7 @@
 package com.cdy.ecommerce;
 
-import com.cdy.ecommerce.eCommerce.domain.point.business.Models.UserPoint;
-import com.cdy.ecommerce.eCommerce.domain.point.business.Repositories.UserPointChargerRepository;
+import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
+import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.UserPointChargerRepository;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
