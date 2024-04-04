@@ -8,12 +8,10 @@ public class PointDTO {
         private Long memberId;
         private Long amount;
     }
-
     @Builder
     @Getter
     public static class Response {
         private long point;
-
         public Response(long point) {
             this.point = point;
         }

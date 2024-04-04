@@ -19,8 +19,6 @@ public class GetUserPointUseCase {
      */
     public UserPoint execute(Long memberId) {
         // 포인트를 조회합니다.
-        UserPoint userPoint = userPointReader.read(memberId);
-        // 조회한 포인트를 반환합니다.
-        return userPoint;
+        return userPointReader.read(memberId);
     }
 }

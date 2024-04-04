@@ -17,6 +17,4 @@ public class UserPointReader {
         UserPoint userPoint = result.orElseGet(() -> UserPoint.empty(memberId));
         return userPoint;
     }
-
-
 }
