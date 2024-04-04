@@ -11,7 +11,7 @@ public class OrderDTO {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Request {
-        private String pname;
+        private String name;
         private int price;
         private int stock;
     }
