@@ -61,7 +61,6 @@
 - 사용자의 포인트를 충전합니다.
 - endpoint : patch /api/point/charge
 
-
 [포인트조회 API]
 - 사용자의 포인트를 조회합니다.
 - endpoint : get /api/point/{memberId}
