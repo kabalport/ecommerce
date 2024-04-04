@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional
 public class RegisterProductUseCase {
-    private final ProductAppender productAppeder;
+    private final ProductAppender productAppender;
     private final MemberReader memberReader;
 
     /**
@@ -22,7 +22,7 @@ public class RegisterProductUseCase {
         // 사용자를 읽어옵니다.
 //        Member member = memberReader.read(memberId);
         // 상품을 추가합니다.
-        Product product = productAppeder.append(productDTO);
+        Product product = productAppender.append(productDTO);
         // 추가한 상품번호를 반환합니다.
         return product.getId();
     }
