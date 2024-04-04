@@ -7,9 +7,9 @@ public class CartItemDTO {
 
   private String userId;
 
-  private Long pno;
+  private Long productId;
 
   private int qty;
 
-  private Long cino;
+  private Long cartItemId;
 }

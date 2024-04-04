@@ -11,28 +11,29 @@ import lombok.*;
 @Builder
 @ToString(exclude = "cart")
 @Table(
-    name = "ecommerce_item",
+    name = "ecommerce_cart_item",
     indexes = {
-      @Index(columnList = "cart_cno", name = "idx_cartitem_cart"),
-      @Index(columnList = "product_id, cart_cno", name = "idx_cartitem_pno_cart")
+      @Index(columnList = "cart_id", name = "idx_cartitem_cart"),
+      @Index(columnList = "product_id, cart_id", name = "idx_cartitem_pno_cart")
     })
 public class CartItem {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long cino;
+  @Column(name = "ecommerce_cart_item_id")
+  private Long id;
 
   @ManyToOne
   @JoinColumn(name = "product_id")
   private Product product;
 
   @ManyToOne
-  @JoinColumn(name = "cart_cno")
+  @JoinColumn(name = "cart_id")
   private Cart cart;
-
-  private int qty;
+  @Column(name = "cart_quantity")
+  private int quantity;
 
   public void changeQty(int qty) {
-    this.qty = qty;
+    this.quantity = qty;
   }
 }

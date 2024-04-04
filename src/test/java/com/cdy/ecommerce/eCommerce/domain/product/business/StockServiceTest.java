@@ -23,7 +23,7 @@ class StockServiceTest {
 
     @BeforeEach
     public void before(){
-        stockRepository.saveAndFlush(new Stock(1L,100L));
+//        stockRepository.saveAndFlush(new Stock(1L,100L));
     }
 
     @AfterEach

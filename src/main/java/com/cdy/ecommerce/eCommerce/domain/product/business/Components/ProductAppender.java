@@ -23,8 +23,8 @@ public class ProductAppender {
 
         Product product =
                 Product.builder()
-                        .pname(productDTO.getPname())
-                        .stock(productDTO.getStock())
+                        .name(productDTO.getPname())
+//                        .stock(productDTO.getStock())
                         .price(productDTO.getPrice())
                         .build();
 

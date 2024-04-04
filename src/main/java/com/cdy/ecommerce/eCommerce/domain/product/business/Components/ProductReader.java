@@ -28,9 +28,9 @@ public class ProductReader {
         ProductDTO.Response productDTO =
                 ProductDTO.Response.builder()
                         .id(product.getId())
-                        .pname(product.getPname())
+                        .pname(product.getName())
                         .price(product.getPrice())
-                        .stock(product.getStock())
+//                        .stock(product.getStock())
                         .build();
 
         return productDTO;

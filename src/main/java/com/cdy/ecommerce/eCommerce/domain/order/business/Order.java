@@ -18,13 +18,15 @@ import java.time.LocalDate;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_point_id")
+    @Column(name = "ecommerce_order_id")
     private Long id;
 
     // 고객 Id
+    @Column(name = "member_id")
     private Long memberId;
 
     // 주문날짜
+    @Column(name = "ecommerce_order_date")
     private LocalDate orderDate;
 
     // 제품과의 관계
@@ -33,10 +35,11 @@ public class Order {
     private Product product;
 
     // 수량
-    private Long quantity;
+    @Column(name = "ecommerce_quantity")
+    private int quantity;
 
-    // 주문상태를 Enum으로 관리하고 데이터베이스에는 String으로 저장
+
     @Enumerated(EnumType.STRING)
-    @Column(length = 255) // 선택적으로 길이 제한 설정
+    @Column(length = 255)
     private OrderStatus status;
 }

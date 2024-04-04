@@ -12,26 +12,26 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserPoint{
+public class UserPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_point_id")
     private Long id;
 
+    @Column(name = "member_id")
     private Long memberId;
 
+    @Column(name = "user_point_point")
     private Long point;
 
-    private Long updateMillis;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_point_pointAction")
+    private PointAction pointAction;
 
-    // UserPoint 클래스 내에 추가
     public static UserPoint empty(Long memberId) {
         return UserPoint.builder()
                 .memberId(memberId)
                 .point(0L)
-                .updateMillis(System.currentTimeMillis()) // 현재 시간으로 설정
                 .build();
     }
-
-
 }

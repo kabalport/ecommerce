@@ -1,45 +1,37 @@
 package com.cdy.ecommerce.eCommerce.domain.product.business.Models;
 
-import com.cdy.ecommerce.eCommerce.domain.common.exception.ProductException;
+import com.cdy.ecommerce.eCommerce.common.exception.ProductException;
 import jakarta.persistence.*;
-
 import lombok.*;
 
 @Entity
-@Table(name = "tbl_product")
+@Table(name = "ecommerce_product")
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
+    private Long id;
 
-  private String pname;
+    @Column(name = "product_name")
+    private String name;
+    @Column(name = "product_price")
+    private int price;
 
-  private int price;
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Stock stock;
 
-  @Column(name = "stock", nullable = false)
-  private int stock;
-
-  private boolean delFlag;
+    private boolean delFlag;
 
     public void changeName(String name){
-        this.pname = name;
+        this.name = name;
     }
     public void changePrice(int price) {
         this.price = price;
     }
-
-
-  public void decreaseCurrentApplications() {
-        if (this.stock > 0) {
-            this.stock -= 1;
-        } else {
-            throw new ProductException("수량이 떨어졌습니다.");
-        }
-  }
 
 }

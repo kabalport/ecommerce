@@ -5,28 +5,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 public class CartItemListDTO {
 
-  private Long cino;
+  private Long cartItemId;
 
   private int qty;
 
-  private Long pno;
+  private Long productIt;
 
   private String pname;
 
   private int price;
 
-
-
-  public CartItemListDTO(Long cino, int qty, Long pno, String pname, int price) {
-    this.cino = cino;
-    this.qty = qty;
-    this.pno = pno;
-    this.pname = pname;
-    this.price = price;
-
-  }
 }

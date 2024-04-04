@@ -6,6 +6,6 @@ package com.cdy.ecommerce.eCommerce.domain.point.business.Models;
  * - CHARGE : 충전
  * - USE : 사용
  */
-public enum TransactionType {
+public enum PointAction {
     CHARGE, USE
 }

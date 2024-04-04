@@ -10,17 +10,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "owner")
-@Table(
-    name = "ecommerce_cart",
-    indexes = {@Index(name = "idx_cart_userId", columnList = "member_owner")})
+@Table(name = "ecommerce_cart")
 public class Cart {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long cno;
+  @Column(name = "ecommerce_cart_id")
+  private Long id;
 
-  @OneToOne
-  @JoinColumn(name = "member_owner")
-  private Member owner;
+  @Column(name = "member_id")
+  private Long memberId;
 }
