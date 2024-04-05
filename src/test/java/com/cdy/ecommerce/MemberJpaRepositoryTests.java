@@ -27,7 +27,7 @@ public class MemberJpaRepositoryTests {
           Member.builder()
               .userId("user" + i)
               .pw("1111")
-              .nickname("nickname" + i)
+                  .nickname("nickname" + i)
               .build();
 
       member.addRole(MemberRole.USER);

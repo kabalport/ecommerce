@@ -26,7 +26,7 @@ public class Member {
   @Column(name = "pw")
   private String pw;
 
-  @Column(name = "nickName")
+  @Column(name = "nick_name")
   private String nickname;
 
   @ElementCollection(fetch = FetchType.LAZY)

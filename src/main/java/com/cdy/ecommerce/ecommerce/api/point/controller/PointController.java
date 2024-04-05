@@ -25,7 +25,6 @@ public class PointController {
         // 기존포인트 반환
         return entityToDTO(userPoint);
     }
-
     /**
      * 잔액 충전 API
      * 사용자 식별자 및 충전할 금액을 받아 잔액을 충전합니다.

@@ -19,7 +19,7 @@ public class UserPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_point_id")
-    private String id;
+    private Long id;
 
     private Long memberId;
 
@@ -28,14 +28,10 @@ public class UserPoint {
     @Enumerated(EnumType.STRING)
     private PointAction pointAction;
 
-    // 커스텀 UUID 생성
-    private static String generateCustomUUID(String prefix) {
-        return prefix + "-" + UUID.randomUUID().toString();
-    }
+
 
     public static UserPoint empty(Long memberId) {
         return UserPoint.builder()
-                .id(generateCustomUUID("CUST")) // 예시 prefix "CUST" 사용
                 .memberId(memberId)
                 .point(0L)
                 .build();
