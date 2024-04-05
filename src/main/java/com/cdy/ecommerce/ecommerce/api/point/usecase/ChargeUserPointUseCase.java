@@ -1,10 +1,9 @@
 package com.cdy.ecommerce.ecommerce.api.point.usecase;
 
 import com.cdy.ecommerce.ecommerce.api.point.dto.PointDTO;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Components.UserPointValidator;
-import com.cdy.ecommerce.ecommerce.domain.point.exception.PointException;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Components.UserPointCharger;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Components.UserPointReader;
+import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointValidator;
+import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointCharger;
+import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointReader;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

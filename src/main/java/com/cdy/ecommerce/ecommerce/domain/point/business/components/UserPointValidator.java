@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.point.business.Components;
+package com.cdy.ecommerce.ecommerce.domain.point.business.components;
 
 import com.cdy.ecommerce.ecommerce.domain.point.exception.PointException;
 import lombok.AllArgsConstructor;

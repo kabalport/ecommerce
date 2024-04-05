@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.api.point.usecase;
 
-import com.cdy.ecommerce.ecommerce.domain.point.business.Components.UserPointReader;
+import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointReader;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
