@@ -4,8 +4,8 @@
 - ~~요구사항분석~~
 - ~~플로우차트=> 머메이드로 수정 04.05~~
 - ~~시퀀스다이어그램=> 머메이드로 수정 04.05~~
-- erd => 머메이드로 수정 04.05
-- Mockapi 04.05
+- ~~erd => 머메이드로 수정 04.05~~
+- Mockapi 04.08
 
 # 요구사항 분석
 ### 유스케이스
@@ -80,6 +80,61 @@ sequenceDiagram
 [장바구니 삭제]
 - 시용자는 장바구니에 있는 상품들을 삭제할수 있습니다.
 
+## ERD
+```mermaid
+erDiagram
+    MEMBER {
+        long member_id PK "인조키"
+        string user_id "사용자 ID"
+        string pw "사용자 비밀번호"
+        string nickName "사용자 닉네임"
+        string member_role "사용자 역할"
+    }
+    USER_POINT {
+        long user_point_id PK "인조키"
+        long member_id FK "회원 ID"
+        long user_point_point "사용자 포인트"
+        string user_point_pointAction "포인트 액션 (충전, 사용)"
+    }
+    PRODUCT {
+        long product_id PK "인조키"
+        string product_name "상품 이름"
+        long product_price "상품 가격"
+        boolean delFlag "삭제 여부"
+    }
+    STOCK {
+        long stock_id PK "인조키"
+        long product_id FK "상품 ID"
+        long stock_quantity "재고 수량"
+    }
+    CART {
+        long ecommerce_cart_id PK "인조키"
+        long member_id FK "회원 ID"
+    }
+    CART_ITEM {
+        long ecommerce_cart_item_id PK "인조키"
+        long product_id FK "상품 ID"
+        long cart_id FK "카트 ID"
+        long cart_quantity "카트 내 상품 수량"
+    }
+    ORDER {
+        long ecommerce_order_id PK "인조키"
+        long member_id FK "회원 ID"
+        date ecommerce_order_date "주문 날짜"
+        long product_id FK "상품 ID"
+        long ecommerce_quantity "주문 수량"
+        string status "주문 상태"
+    }
+
+    MEMBER ||--o{ USER_POINT : ""
+    MEMBER ||--o{ CART : ""
+    MEMBER ||--o{ ORDER : ""
+    PRODUCT ||--o{ STOCK : ""
+    PRODUCT ||--o{ CART_ITEM : ""
+    PRODUCT ||--o{ ORDER : ""
+    CART ||--o{ CART_ITEM : ""
+
+```
 
 ## API 설계
 ### 포인트
