@@ -11,11 +11,9 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class UserPointCharger {
     private final IUserPointChargerRepository IUserPointChargerRepository;
-    private final ICalculator calculator;
 
     public UserPoint chargePoint(UserPoint pointInfo, Long amount) {
-//        Long updatedPoints = pointInfo.getPoint() + amount;
-        Double updatedPoints = calculator.add(amount).getResult();
+        Long updatedPoints = pointInfo.getPoint() + amount;
 
         UserPoint updatedUserPoint = UserPoint.builder().memberId(pointInfo.getMemberId()).point(updatedPoints.longValue()).build();
         IUserPointChargerRepository.save(updatedUserPoint);
