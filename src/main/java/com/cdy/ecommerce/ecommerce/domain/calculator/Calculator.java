@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.calculator;
 
-public class Calculator {
+public class Calculator implements ICalculator {
   private Double result;
 
   public Calculator() {
@@ -11,32 +11,35 @@ public class Calculator {
     this.result = initResult;
   }
 
-  public Calculator add(Double number) {
+  @Override
+  public ICalculator add(Double number) {
     this.result += number;
     return this;
   }
 
-  public Calculator minus(Double number) {
-    this.result -= number;
-    return this;
+  @Override
+  public ICalculator add(Long number) {
+    return null;
   }
 
-  public Calculator multiply(Double number) {
-    this.result *= number;
-    return this;
+  @Override
+  public ICalculator subtract(Double number) {
+    return null;
   }
 
-  public Calculator divide(Double number) {
-    if (number == 0.0) {
-      throw new ZeroDivisionException();
-    }
-    this.result /= number;
-    return this;
+  @Override
+  public ICalculator multiply(Double number) {
+    return null;
   }
 
+  @Override
+  public ICalculator divide(Double number) {
+    return null;
+  }
+
+
+  @Override
   public Double getResult() {
     return this.result;
   }
-
-  public static class ZeroDivisionException extends RuntimeException {}
 }
