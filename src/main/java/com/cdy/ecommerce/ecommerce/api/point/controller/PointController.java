@@ -18,10 +18,10 @@ public class PointController {
      * 잔액 조회 API
      * 사용자 식별자를 통해 해당 사용자의 잔액을 조회합니다.
      */
-    @GetMapping("/{memberId}")
-    public PointDTO.Response getPoint(@PathVariable Long memberId){
+    @GetMapping("/{userId}")
+    public PointDTO.Response getPoint(@PathVariable String userId){
         // 포인트조회
-        UserPoint userPoint = getUserPointUseCase.execute(memberId);
+        UserPoint userPoint = getUserPointUseCase.execute(userId);
         // 기존포인트 반환
         return entityToDTO(userPoint);
     }

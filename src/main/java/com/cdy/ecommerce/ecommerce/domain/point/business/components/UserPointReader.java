@@ -12,10 +12,10 @@ import java.util.Optional;
 public class UserPointReader {
     private final IUserPointReaderRepository IUserPointReaderRepository;
 
-    public UserPoint read(Long memberId) {
+    public UserPoint read(String userId) {
         // 유저포인트 조회
-        Optional<UserPoint> result = IUserPointReaderRepository.selectUserPoint(memberId);
+        Optional<UserPoint> result = IUserPointReaderRepository.selectUserPoint(userId);
         // 유저포인트 결과가져오기. 없으면 유저포인트 0원 가져오기
-        return result.orElseGet(() -> UserPoint.empty(memberId));
+        return result.orElseGet(() -> UserPoint.empty());
     }
 }

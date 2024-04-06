@@ -1,15 +1,15 @@
 package com.cdy.ecommerce.ecommerce.domain.point.business.Models;
 
+import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
 
 @Entity
-@Table(name = "ecommerce_user_point")
+@Table(name = "ecommerce_user_point", indexes = {@Index(name = "idx_user_point_member_id", columnList = "member_owner")})
 @Getter
 @Builder
 @AllArgsConstructor
@@ -21,18 +21,17 @@ public class UserPoint {
     @Column(name = "user_point_id")
     private Long id;
 
-    private Long memberId;
 
     private Long point;
 
-    @Enumerated(EnumType.STRING)
-    private PointAction pointAction;
+
+    @OneToOne
+    @JoinColumn(name = "member_owner")
+    private Member member;
 
 
-
-    public static UserPoint empty(Long memberId) {
+    public static UserPoint empty() {
         return UserPoint.builder()
-                .memberId(memberId)
                 .point(0L)
                 .build();
     }

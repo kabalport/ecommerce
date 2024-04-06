@@ -1,5 +1,7 @@
 package com.cdy.ecommerce.ecommerce.api.point.usecase;
 
+import com.cdy.ecommerce.ecommerce.domain.member.business.Components.MemberReader;
+import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
 import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointReader;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +14,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class GetUserPointUseCase {
     private final UserPointReader userPointReader;
 
+    private final MemberReader memberReader;
+
     /**
      * 포인트 조회기능
-     * @param memberId
+     * @param userId
      * @return
      */
-    public UserPoint execute(Long memberId) {
+    public UserPoint execute(String userId) {
+        // 유저 검증
+        Member member = memberReader.read(userId);
         // 포인트를 조회합니다.
-        return userPointReader.read(memberId);
+        return userPointReader.read(member.getUserId());
     }
 }

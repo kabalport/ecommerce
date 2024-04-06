@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @ToString(exclude = "memberRoleList")
-//@Table(name = "member_info")
+@Table(name = "member_info")
 public class Member {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

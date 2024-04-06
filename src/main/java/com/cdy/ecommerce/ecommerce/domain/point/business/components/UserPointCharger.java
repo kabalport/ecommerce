@@ -1,6 +1,5 @@
 package com.cdy.ecommerce.ecommerce.domain.point.business.components;
 
-import com.cdy.ecommerce.ecommerce.domain.calculator.ICalculator;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.IUserPointChargerRepository;
 import lombok.AllArgsConstructor;
@@ -15,7 +14,7 @@ public class UserPointCharger {
     public UserPoint chargePoint(UserPoint pointInfo, Long amount) {
         Long updatedPoints = pointInfo.getPoint() + amount;
 
-        UserPoint updatedUserPoint = UserPoint.builder().memberId(pointInfo.getMemberId()).point(updatedPoints.longValue()).build();
+        UserPoint updatedUserPoint = UserPoint.builder().member(pointInfo.getMember()).point(updatedPoints.longValue()).build();
         IUserPointChargerRepository.save(updatedUserPoint);
         return updatedUserPoint;
     }

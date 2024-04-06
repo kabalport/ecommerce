@@ -15,4 +15,7 @@ public interface MemberReaderRepository extends MemberJpaRepository {
 
     @Query("select m from Member m where m.memberId = :memberId")
     Optional<Member> selectOne(Long memberId);
+
+    @Query("select m from Member m where m.userId = :userId")
+    Optional<Member> selectUserId(String userId);
 }

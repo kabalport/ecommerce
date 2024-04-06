@@ -5,8 +5,10 @@ import lombok.*;
 public class PointDTO {
     @Getter
     public static class Request {
-        private Long memberId;
+        private String userId;
         private Long amount;
+
+
     }
     @Builder
     @Getter

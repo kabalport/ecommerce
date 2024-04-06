@@ -13,7 +13,7 @@ public class IUserPointReaderCoreRepository implements IUserPointReaderRepositor
     private final UserPointJpaRepository userPointJpaRepository;
 
     @Override
-    public Optional<UserPoint> selectUserPoint(Long memberId) {
-        return userPointJpaRepository.findByMemberId(memberId);
+    public Optional<UserPoint> selectUserPoint(String userId) {
+        return userPointJpaRepository.findByUserId(userId);
     }
 }
