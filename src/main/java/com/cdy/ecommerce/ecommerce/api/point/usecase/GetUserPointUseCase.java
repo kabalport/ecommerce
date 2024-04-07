@@ -24,7 +24,7 @@ public class GetUserPointUseCase {
     public UserPoint execute(String userId) {
         // 유저 검증
         Member member = memberReader.read(userId);
-        // 포인트를 조회합니다.
+        // 기존포인트를 조회합니다.
         return userPointReader.read(member.getUserId());
     }
 }
