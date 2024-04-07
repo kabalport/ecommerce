@@ -2,6 +2,7 @@ package com.cdy.ecommerce.ecommerce.api.product.usecase;
 
 import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
 import com.cdy.ecommerce.ecommerce.domain.product.business.components.ProductReader;
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,10 +18,8 @@ public class GetProductUseCase {
      * @param id
      * @return
      */
-    public ProductDTO.Response execute(Long id){
+    public Product execute(Long id){
         // 상품 하나를 조회합니다.
-        ProductDTO.Response product = productReader.read(id);
-        // 조회한 상품을 반환합니다.
-        return product;
+        return productReader.read(id);
     }
 }

@@ -1,9 +1,12 @@
 package com.cdy.ecommerce.ecommerce.api.product.controller;
 
 
+import com.cdy.ecommerce.ecommerce.api.point.dto.PointDTO;
 import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
 import com.cdy.ecommerce.ecommerce.api.product.usecase.GetProductUseCase;
 import com.cdy.ecommerce.ecommerce.api.product.usecase.RegisterProductUseCase;
+import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +28,7 @@ public class ProductController {
    * @return
    */
   @GetMapping("/{id}")
-  public ProductDTO.Response getOne(@PathVariable(name = "id") Long id) {
+  public Product getOne(@PathVariable(name = "id") Long id) {
     return getProductUseCase.execute(id);
   }
 
@@ -37,6 +40,11 @@ public class ProductController {
     // 서비스 호출
     Long productResponse = registerProductUseCase.execute(productRequest, memberId);
     return Map.of("result", productResponse);
+  }
+
+  private ProductDTO.Response entityToDTO(Product product) {
+    // 변환
+    return ProductDTO.Response.builder().build();
   }
 
 }

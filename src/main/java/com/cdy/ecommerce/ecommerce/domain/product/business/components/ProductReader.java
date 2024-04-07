@@ -1,6 +1,5 @@
 package com.cdy.ecommerce.ecommerce.domain.product.business.components;
 
-import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.ProductReaderRepository;
@@ -13,29 +12,10 @@ import java.util.Optional;
 public class ProductReader {
     private final ProductReaderRepository productReaderRepository;
 
-    public ProductDTO.Response read(Long id) {
-        // 상품존재유무
+    public Product read(Long id) {
+        // 상품유무조회
         Optional<Product> result = productReaderRepository.selectOne(id);
-
-        Product product = result.orElseThrow();
-
-        ProductDTO.Response productDTO = entityToDTO(product);
-
-        return productDTO;
+        // 상품유무결과
+        return result.orElseThrow();
     }
-
-    private ProductDTO.Response entityToDTO(Product product) {
-
-        ProductDTO.Response productDTO =
-                ProductDTO.Response.builder()
-                        .id(product.getId())
-                        .pname(product.getName())
-                        .price(product.getPrice())
-//                        .stock(product.getStock())
-                        .build();
-
-        return productDTO;
-    }
-
-
 }
