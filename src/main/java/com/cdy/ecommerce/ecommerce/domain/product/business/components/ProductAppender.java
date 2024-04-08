@@ -16,8 +16,9 @@ public class ProductAppender {
     public Product append(ProductDTO.Request productDTO) {
         // 상품존재유무
         Product product = dtoToEntity(productDTO);
-        Product result  = productRepository.save(product);
-        return result;
+//        Product result  = productRepository.save(product);
+//        return result;
+        return null;
     }
 
     private Product dtoToEntity(ProductDTO.Request productDTO) {
