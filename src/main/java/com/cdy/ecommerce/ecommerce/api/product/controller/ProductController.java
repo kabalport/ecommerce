@@ -26,23 +26,23 @@ public class ProductController {
    * @return
    */
   @GetMapping("/{id}")
-  public Product getOne(@PathVariable(name = "id") Long id) {
-    return getProductUseCase.execute(id);
+  public ProductDTO.Response getOne(@PathVariable(name = "id") Long id) {
+    return entityToDTO(getProductUseCase.execute(id));
   }
 
   /**
    * 상품 등록 API
    */
   @PostMapping
-  public Map<String, Long> register(@RequestBody ProductDTO.Request request) {
+  public ProductDTO.Response register(@RequestBody ProductDTO.Request request) {
     // 서비스 호출
-    Long productResponse = registerProductUseCase.execute(request);
-    return Map.of("result", productResponse);
+    Product response = registerProductUseCase.execute(request);
+    return entityToDTO(response);
   }
 
   private ProductDTO.Response entityToDTO(Product product) {
     // 변환
-    return ProductDTO.Response.builder().build();
+    return ProductDTO.Response.builder().id(product.getId()).pname(product.getName()).price(product.getPrice()).build();
   }
 
 }
