@@ -1,4 +1,4 @@
-package com.cdy.ecommerce;
+package com.cdy.ecommerce.ecommerce.domain.point;
 
 import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
 import com.cdy.ecommerce.ecommerce.domain.member.business.Repositories.MemberReaderRepository;

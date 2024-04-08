@@ -2,7 +2,8 @@ package com.cdy.ecommerce.ecommerce.domain.product.business.components;
 
 import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
-import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.ProductAppendRepository;
+
+import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.ProductManagerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor
 public class ProductAppender {
-    private final ProductAppendRepository productRepository;
+    private final ProductManagerRepository productRepository;
 
     public Product append(ProductDTO.Request productDTO) {
         // 상품존재유무

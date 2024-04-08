@@ -9,6 +9,12 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+/**
+ * 상품
+ * 상품정보
+ * 상품옵션
+ * 상품재고
+ */
 public class Product {
 
     @Id

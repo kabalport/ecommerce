@@ -1,15 +1,16 @@
 package com.cdy.ecommerce.ecommerce.domain.product.business;
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
-import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.StockRepository;
+
+import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.productoption.ProductStockManagerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StockService {
-    private final StockRepository stockRepository;
+    private final ProductStockManagerRepository stockRepository;
 
-    public StockService(StockRepository stockRepository) {
+    public StockService(ProductStockManagerRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
 

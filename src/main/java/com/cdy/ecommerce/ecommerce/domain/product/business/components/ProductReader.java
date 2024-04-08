@@ -2,7 +2,7 @@ package com.cdy.ecommerce.ecommerce.domain.product.business.components;
 
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
-import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.ProductReaderRepository;
+import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.ProductReaderRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
