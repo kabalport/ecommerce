@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class ProductOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ecommerce_order_id")
@@ -41,5 +41,5 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 255)
-    private OrderStatus status;
+    private ProductOrderStatus status;
 }

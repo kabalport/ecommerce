@@ -67,7 +67,7 @@ return "결제완료"
 환불절차가 실행된다.
 환불해버려요
 
-order,order_item의 테이블을 분리해야 하는 이유를 잘 모르겠습니다.
+productOrder,order_item의 테이블을 분리해야 하는 이유를 잘 모르겠습니다.
 
 주문
 뉴진스 티셔츠 order_item 결제완료
@@ -259,7 +259,7 @@ erDiagram
 [주문 API]
 - 상품을 주문 및 결제합니다.
 - 상품이 결제가 되면 주문상태를 저장합니다.
-- endpoint : post /api/order
+- endpoint : post /api/productOrder
 
 ### 결제
 [결제 API]

@@ -1,8 +1,5 @@
 package com.cdy.ecommerce.ecommerce.domain.product.business.components;
 
-
-import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
-import com.cdy.ecommerce.ecommerce.domain.member.business.model.exception.MemberException;
 import com.cdy.ecommerce.ecommerce.domain.product.ProductException;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.IProductReaderRepository;

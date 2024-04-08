@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.order.business;
 
-public enum OrderStatus {
+public enum ProductOrderStatus {
     PENDING, // 대기 중
     CONFIRMED, // 확인됨
     SHIPPED, // 배송됨
