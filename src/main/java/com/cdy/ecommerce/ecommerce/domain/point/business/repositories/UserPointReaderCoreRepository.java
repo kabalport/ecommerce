@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 @AllArgsConstructor
 public class UserPointReaderCoreRepository implements IUserPointReaderRepository {
-    private final com.cdy.ecommerce.ecommerce.domain.point.infrastructure.IUserPointJpaRepository IUserPointJpaRepository;
+    private final IUserPointJpaRepository IUserPointJpaRepository;
 
     @Override
     public Optional<UserPoint> selectUserPoint(String userId) {
