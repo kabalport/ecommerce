@@ -1,21 +1,16 @@
 package com.cdy.ecommerce.ecommerce.api.point.usecase;
 
 import com.cdy.ecommerce.ecommerce.api.point.dto.PointDTO;
-import com.cdy.ecommerce.ecommerce.domain.member.business.Components.MemberReader;
-import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.ChangeType;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPointHistory;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.IUserPointChargerRepository;
+import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;
+import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointChargerHistory;
 import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointValidator;
 import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointCharger;
 import com.cdy.ecommerce.ecommerce.domain.point.business.components.UserPointReader;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.UserPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor

@@ -1,6 +1,6 @@
-package com.cdy.ecommerce.ecommerce.domain.point.business.Models;
+package com.cdy.ecommerce.ecommerce.domain.point.business.model;
 
-import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
+import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

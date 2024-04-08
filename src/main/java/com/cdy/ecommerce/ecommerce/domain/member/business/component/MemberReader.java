@@ -1,8 +1,8 @@
-package com.cdy.ecommerce.ecommerce.domain.member.business.Components;
+package com.cdy.ecommerce.ecommerce.domain.member.business.component;
 
-import com.cdy.ecommerce.ecommerce.domain.member.business.Models.exception.MemberException;
-import com.cdy.ecommerce.ecommerce.domain.member.business.Repositories.MemberReaderRepository;
-import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
+import com.cdy.ecommerce.ecommerce.domain.member.business.model.exception.MemberException;
+import com.cdy.ecommerce.ecommerce.domain.member.business.repository.MemberReaderRepository;
+import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

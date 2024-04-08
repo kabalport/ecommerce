@@ -1,7 +1,7 @@
 package com.cdy.ecommerce.ecommerce.api.product.usecase;
 
 import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
-import com.cdy.ecommerce.ecommerce.domain.member.business.Components.MemberReader;
+import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;
 import com.cdy.ecommerce.ecommerce.domain.product.business.components.ProductAppender;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import lombok.RequiredArgsConstructor;

@@ -1,10 +1,9 @@
 package com.cdy.ecommerce.ecommerce.domain.point.business.components;
 
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.ChangeType;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPointHistory;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.IUserPointChargerHistoryRepository;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.IUserPointChargerRepository;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.ChangeType;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.UserPoint;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.UserPointHistory;
+import com.cdy.ecommerce.ecommerce.domain.point.business.repositories.IUserPointChargerHistoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

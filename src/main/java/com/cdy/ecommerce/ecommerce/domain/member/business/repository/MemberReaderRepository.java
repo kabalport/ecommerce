@@ -1,6 +1,6 @@
-package com.cdy.ecommerce.ecommerce.domain.member.business.Repositories;
+package com.cdy.ecommerce.ecommerce.domain.member.business.repository;
 
-import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
+import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import com.cdy.ecommerce.ecommerce.domain.member.infrastructure.MemberJpaRepository;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;

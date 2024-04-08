@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.point.business.components;
 
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.exception.PointException;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.exception.PointException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

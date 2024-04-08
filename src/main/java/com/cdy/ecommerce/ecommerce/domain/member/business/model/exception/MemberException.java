@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.member.business.Models.exception;
+package com.cdy.ecommerce.ecommerce.domain.member.business.model.exception;
 
 public class MemberException extends RuntimeException{
     public MemberException(String message){

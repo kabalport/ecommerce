@@ -3,7 +3,7 @@ package com.cdy.ecommerce.ecommerce.api.point.controller;
 import com.cdy.ecommerce.ecommerce.api.point.dto.PointDTO;
 import com.cdy.ecommerce.ecommerce.api.point.usecase.ChargeUserPointUseCase;
 import com.cdy.ecommerce.ecommerce.api.point.usecase.GetUserPointUseCase;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.UserPoint;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

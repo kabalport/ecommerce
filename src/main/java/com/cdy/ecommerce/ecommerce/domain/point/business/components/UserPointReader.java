@@ -1,8 +1,8 @@
 package com.cdy.ecommerce.ecommerce.domain.point.business.components;
 
-import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.IUserPointReaderRepository;
+import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.UserPoint;
+import com.cdy.ecommerce.ecommerce.domain.point.business.repositories.IUserPointReaderRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

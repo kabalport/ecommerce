@@ -1,9 +1,9 @@
 package com.cdy.ecommerce.ecommerce.domain.point;
 
-import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
-import com.cdy.ecommerce.ecommerce.domain.member.business.Repositories.MemberReaderRepository;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.IUserPointChargerRepository;
+import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
+import com.cdy.ecommerce.ecommerce.domain.member.business.repository.MemberReaderRepository;
+import com.cdy.ecommerce.ecommerce.domain.point.business.model.UserPoint;
+import com.cdy.ecommerce.ecommerce.domain.point.business.repositories.IUserPointChargerRepository;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

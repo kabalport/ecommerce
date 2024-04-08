@@ -2,9 +2,9 @@ package com.cdy.ecommerce.ecommerce.domain.product;
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
-import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.ProductManagerRepository;
+import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.IProductManagerRepository;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.productoption.ProductStockManagerRepository;
+import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.productoption.IProductStockManagerRepository;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -16,10 +16,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class ProductStockRepositoryTests {
 
     @Autowired
-    private ProductStockManagerRepository productStockRepository;
+    private IProductStockManagerRepository productStockRepository;
 
     @Autowired
-    private ProductManagerRepository productRepository;
+    private IProductManagerRepository productRepository;
 
     @Test
     public void testInsertProductStock() {

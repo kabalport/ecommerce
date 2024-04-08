@@ -1,11 +1,9 @@
 package com.cdy.ecommerce.ecommerce.api.product.controller;
 
 
-import com.cdy.ecommerce.ecommerce.api.point.dto.PointDTO;
 import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
 import com.cdy.ecommerce.ecommerce.api.product.usecase.GetProductUseCase;
 import com.cdy.ecommerce.ecommerce.api.product.usecase.RegisterProductUseCase;
-import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
