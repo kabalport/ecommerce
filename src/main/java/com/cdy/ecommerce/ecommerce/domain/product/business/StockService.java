@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.product.business;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.models.Stock;
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.StockRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -18,8 +18,8 @@ public class StockService {
         // stock조회
         // 재고를 감소한뒤
         // 갱신된 값을 저장하도록
-        Stock stock = stockRepository.findById(id).orElseThrow();
-        stock.decrease(quantity);
-        stockRepository.saveAndFlush(stock);
+        ProductStock productStock = stockRepository.findById(id).orElseThrow();
+        productStock.decrease(quantity);
+        stockRepository.saveAndFlush(productStock);
     }
 }

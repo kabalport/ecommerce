@@ -22,7 +22,7 @@ public class Product {
     private int price;
 
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Stock stock;
+    private ProductStock productStock;
 
     private boolean delFlag;
 

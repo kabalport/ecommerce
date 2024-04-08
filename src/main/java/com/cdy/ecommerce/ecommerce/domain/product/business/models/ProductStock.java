@@ -1,15 +1,16 @@
 package com.cdy.ecommerce.ecommerce.domain.product.business.models;
 
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.exception.StockException;
 import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
-@Table(name = "ecommerce_stock")
+@Table(name = "ecommerce_product_stock")
 @Getter
-public class Stock {
+public class ProductStock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "stock_id")
+    @Column(name = "product_stock_id")
     private Long id;
 
     @OneToOne
@@ -18,9 +19,9 @@ public class Stock {
 
     private Long quantity;
 
-    public Stock(){}
+    public ProductStock(){}
 
-    public Stock(Product product, Long quantity){
+    public ProductStock(Product product, Long quantity){
         this.product = product;
         this.quantity = quantity;
     }

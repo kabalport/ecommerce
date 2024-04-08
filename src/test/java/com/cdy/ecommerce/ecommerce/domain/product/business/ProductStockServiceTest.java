@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.product.business;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.models.Stock;
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.StockRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class StockServiceTest {
+class ProductStockServiceTest {
     @Autowired
     private StockService stockService;
     @Autowired
@@ -34,8 +34,8 @@ class StockServiceTest {
     @Test
     public void 재고감소(){
         stockService.decrease(1L,1L);
-        Stock stock = stockRepository.findById(1L).orElseThrow();
-        assertEquals(99, stock.getQuantity());
+        ProductStock productStock = stockRepository.findById(1L).orElseThrow();
+        assertEquals(99, productStock.getQuantity());
     }
 
     @Test
@@ -55,8 +55,8 @@ class StockServiceTest {
         }
 
         latch.await();
-        Stock stock = stockRepository.findById(1L).orElseThrow();
+        ProductStock productStock = stockRepository.findById(1L).orElseThrow();
         // 100 - (1*100) = 0;
-        assertEquals(0,stock.getQuantity());
+        assertEquals(0, productStock.getQuantity());
     }
 }

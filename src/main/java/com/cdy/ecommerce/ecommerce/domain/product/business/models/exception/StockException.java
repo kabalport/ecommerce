@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.product.business.models;
+package com.cdy.ecommerce.ecommerce.domain.product.business.models.exception;
 
 public class StockException extends RuntimeException{
 

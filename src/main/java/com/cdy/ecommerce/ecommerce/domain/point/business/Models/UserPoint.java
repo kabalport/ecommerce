@@ -33,6 +33,10 @@ public class UserPoint {
         this.point = point;
     }
 
+    public static UserPoint empty(Member member) {
+        return new UserPoint(member, 0L);
+    }
+
     public void addPoints(Long amount) {
         this.point += amount;
     }
