@@ -1,7 +1,13 @@
 package com.cdy.ecommerce.ecommerce.admin;
 
+import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
+import com.cdy.ecommerce.ecommerce.api.product.usecase.GetProductUseCase;
+import com.cdy.ecommerce.ecommerce.api.product.usecase.RegisterProductUseCase;
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,4 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Log4j2
 @RequestMapping("/api/admin/products")
-public class ProductAdminController {}
+public class ProductAdminController {
+
+    private final GetProductUseCase getProductUseCase;
+    private final RegisterProductUseCase registerProductUseCase;
+
+    /**
+     * 상품 등록 API
+     */
+    @PostMapping
+    public ProductDTO.Response register(@RequestBody ProductDTO.Request request) {
+        // 서비스 호출
+        Product response = registerProductUseCase.execute(request);
+        return entityToDTO(response);
+    }
+
+    private ProductDTO.Response entityToDTO(Product product) {
+        // 변환
+        return ProductDTO.Response.builder().id(product.getId()).name(product.getName()).price(product.getPrice()).build();
+    }
+}

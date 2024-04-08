@@ -12,7 +12,7 @@ public class ProductDTO {
   public static class Request {
 
     private String userId;
-    private String pname;
+    private String name;
     private int price;
     private int stock;
   }
@@ -23,8 +23,8 @@ public class ProductDTO {
   @NoArgsConstructor
   public static class Response {
     private Long id;
-    private String pname;
+    private String name;
     private int price;
-    private int stock;
+    private long stock;
   }
 }

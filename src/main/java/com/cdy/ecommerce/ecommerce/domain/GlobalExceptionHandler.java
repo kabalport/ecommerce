@@ -1,6 +1,7 @@
 package com.cdy.ecommerce.ecommerce.domain;
 
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.exception.MemberException;
+import com.cdy.ecommerce.ecommerce.domain.product.ProductException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,6 +17,17 @@ public class GlobalExceptionHandler {
     // 회원정보가 없을 때 발생하는 예외를 처리합니다.
     @ExceptionHandler(MemberException.class)
     public ResponseEntity<Object> handleMemberException(MemberException ex, WebRequest request) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", HttpStatus.NOT_FOUND.value());
+        body.put("error", "Not Found");
+        body.put("message", ex.getMessage());
+        body.put("path", request.getDescription(false).substring(4)); // "uri=" 제거
+
+        return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(ProductException.class)
+    public ResponseEntity<Object> handleProductException(ProductException ex, WebRequest request) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("status", HttpStatus.NOT_FOUND.value());

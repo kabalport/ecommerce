@@ -20,8 +20,8 @@ public class ProductReaderCoreRepository implements IProductReaderRepository {
     //상품조회
 
     @Override
-    public Optional<Product> selectOne(Long id) {
-        return productJpaRepository.selectOne(id);
+    public Optional<Product> selectOne(Long productId) {
+        return productJpaRepository.selectOne(productId);
     }
 //    //상품수정
 //    public void 상품수정(Long productId){

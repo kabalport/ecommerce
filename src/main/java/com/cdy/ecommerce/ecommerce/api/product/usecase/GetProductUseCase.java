@@ -15,11 +15,11 @@ public class GetProductUseCase {
 
     /**
      * 상품 조회기능
-     * @param id
+     * @param productId
      * @return
      */
-    public Product execute(Long id){
+    public Product execute(Long productId){
         // 상품 하나를 조회합니다.
-        return productReader.read(id);
+        return productReader.read(productId);
     }
 }

@@ -2,10 +2,9 @@ package com.cdy.ecommerce.ecommerce.domain.product;
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
-import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.IProductManagerRepository;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.IProductStockManagerRepository;
-
+import com.cdy.ecommerce.ecommerce.domain.product.infrastructure.IProductJpaRepository;
+import com.cdy.ecommerce.ecommerce.domain.product.infrastructure.IProductStockJpaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +15,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class ProductStockRepositoryTests {
 
     @Autowired
-    private IProductStockManagerRepository productStockRepository;
+    private IProductJpaRepository productRepository;
 
     @Autowired
-    private IProductManagerRepository productRepository;
+    private IProductStockJpaRepository productStockRepository;
+
 
     @Test
     public void testInsertProductStock() {
-//        Product product = productRepository.findById(1L).orElseThrow(); // 상품 ID가 1인 상품을 먼저 조회
+        Product product = productRepository.findById(1L).orElseThrow(); // 상품 ID가 1인 상품을 먼저 조회
 
-//        ProductStock productStock = new ProductStock(product, 100L); // 100개의 재고를 가정
+        ProductStock productStock = new ProductStock(product, 100L); // 100개의 재고를 가정
 
-//        productStockRepository.save(productStock);
+        productStockRepository.save(productStock);
 
-//        log.info("Inserted ProductStock: " + productStock);
+        log.info("Inserted ProductStock: " + productStock);
     }
 
     @Test

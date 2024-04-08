@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface IProductReaderRepository  {
 
 
-    Optional<Product> selectOne(Long id);
+    Optional<Product> selectOne(Long productId);
 
 }
