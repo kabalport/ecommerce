@@ -16,7 +16,13 @@ public class UserPointChargerHistory {
     private final IUserPointChargerHistoryRepository userPointChargerRepository;
 
     public void add(UserPoint userPoint, Long point) {
-        UserPointHistory userPointHistory = UserPointHistory.builder().userPoint(userPoint).changeAmount(point).changeType(ChangeType.CHARGE).changeTime(LocalDateTime.now()).build();
+        UserPointHistory userPointHistory = UserPointHistory
+                .builder()
+                .userPoint(userPoint)
+                .changeAmount(point)
+                .changeType(ChangeType.CHARGE)
+                .changeTime(LocalDateTime.now())
+                .build();
         userPointChargerRepository.save(userPointHistory);
     }
 }

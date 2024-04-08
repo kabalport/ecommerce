@@ -10,15 +10,13 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user_point_history")
+@Table(name = "ecommerce_user_point_history")
 public class UserPointHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_point_history_id")
     private Long id;
-
-//    @Column(name = "user_id")
-//    private String userId;
 
     @Column(name = "change_amount")
     private Long changeAmount;

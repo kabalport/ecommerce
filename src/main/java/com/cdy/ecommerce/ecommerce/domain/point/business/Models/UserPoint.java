@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "ecommerce_user_point", indexes = {@Index(name = "idx_user_point_member_id", columnList = "member_owner")})
+@Table(name = "ecommerce_user_point", indexes = {@Index(name = "idx_user_point_member_id", columnList = "member")})
 @Getter
 @Builder
 @AllArgsConstructor
@@ -26,7 +26,7 @@ public class UserPoint {
 
 
     @OneToOne
-    @JoinColumn(name = "member_owner")
+    @JoinColumn(name = "member")
     private Member member;
 
 

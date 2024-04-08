@@ -13,7 +13,17 @@ public class UserPointCharger {
     private final IUserPointChargerRepository userPointChargerRepository;
 
     public UserPoint charge(Member member, Long amount) {
-            userPointChargerRepository.updatePoint(member.getUserId(), amount);
-            return UserPoint.builder().point(amount).build();
+        System.out.println("---");
+        System.out.println(member.getUserId());
+        System.out.println("---");
+        System.out.println(amount);
+        System.out.println("000");
+        UserPoint userPoint = UserPoint.builder()
+                .member(member)
+                .point(amount)
+                .build();
+
+        userPointChargerRepository.save(userPoint);
+        return UserPoint.builder().point(amount).build();
     }
 }

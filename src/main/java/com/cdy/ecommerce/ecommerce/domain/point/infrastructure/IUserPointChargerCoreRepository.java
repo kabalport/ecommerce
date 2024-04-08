@@ -11,15 +11,9 @@ import org.springframework.stereotype.Repository;
 public class IUserPointChargerCoreRepository implements IUserPointChargerRepository {
     private final UserPointJpaRepository userPointJpaRepository;
 
-
     @Override
-    public void updatePoint(String userId, long newPointsBalance) {
-        userPointJpaRepository.updatePoint(userId, newPointsBalance);
+    public void save(UserPoint userPoint) {
+        userPointJpaRepository.save(userPoint);
     }
 
-//    @Override
-//    public void insertPoint(Member member, Long amount) {
-//        UserPoint userPoint = UserPoint.builder().build();
-//        userPointJpaRepository.save(userPoint);
-//    }
 }

@@ -31,7 +31,7 @@ public class PointRepositoryTests {
                     .point(1000L)
                     .build();
 
-//            iUserPointChargerRepository.save(userPoint);
+//            iUserPointChargerRepository.updatePoint(userPoint);
             log.info("-------------------");
 
     }
