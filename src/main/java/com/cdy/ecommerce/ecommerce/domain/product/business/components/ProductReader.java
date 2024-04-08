@@ -14,8 +14,9 @@ public class ProductReader {
 
     public Product read(Long id) {
         // 상품유무조회
-        Optional<Product> result = productReaderRepository.selectOne(id);
+//        Optional<Product> result = productReaderRepository.selectOne(id);
         // 상품유무결과
-        return result.orElseThrow();
+//        return result.orElseThrow();
+        return null;
     }
 }
