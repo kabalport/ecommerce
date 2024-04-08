@@ -32,11 +32,11 @@ public class OrderController {
     private final OrderAndPayUseCase orderAndPayUseCase;
 
     /**
-     * 주문 등록 API
+     * 주문하고결제하기 API
      * 상품 재고가 있으면 주문이 성공하면 결제를 합니다.
      */
     @PostMapping
-    public Map<String, Long> register(@RequestBody OrderDTO.Request orderRequest, Long memberId) {
+    public Map<String, Long> order(@RequestBody OrderDTO.Request orderRequest, Long memberId) {
         // 주문을 하고 결제를 수행한다.
         Long orderResponse = orderAndPayUseCase.execute(orderRequest,memberId);
         return Map.of("result", orderResponse);
