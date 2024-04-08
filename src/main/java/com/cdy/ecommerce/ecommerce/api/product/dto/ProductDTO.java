@@ -10,6 +10,8 @@ public class ProductDTO {
   @AllArgsConstructor
   @NoArgsConstructor
   public static class Request {
+
+    private String userId;
     private String pname;
     private int price;
     private int stock;

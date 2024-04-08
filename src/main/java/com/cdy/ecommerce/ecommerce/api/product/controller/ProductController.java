@@ -34,9 +34,9 @@ public class ProductController {
    * 상품 등록 API
    */
   @PostMapping
-  public Map<String, Long> register(@RequestBody ProductDTO.Request productRequest, Long memberId) {
+  public Map<String, Long> register(@RequestBody ProductDTO.Request request) {
     // 서비스 호출
-    Long productResponse = registerProductUseCase.execute(productRequest, memberId);
+    Long productResponse = registerProductUseCase.execute(request);
     return Map.of("result", productResponse);
   }
 
