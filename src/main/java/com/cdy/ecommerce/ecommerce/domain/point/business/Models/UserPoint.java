@@ -21,7 +21,6 @@ public class UserPoint {
     @Column(name = "user_point_id")
     private Long id;
 
-
     private Long point;
 
 
@@ -29,10 +28,12 @@ public class UserPoint {
     @JoinColumn(name = "member")
     private Member member;
 
+    public UserPoint(Member member, Long point) {
+        this.member = member;
+        this.point = point;
+    }
 
-    public static UserPoint empty() {
-        return UserPoint.builder()
-                .point(0L)
-                .build();
+    public void addPoints(Long amount) {
+        this.point += amount;
     }
 }

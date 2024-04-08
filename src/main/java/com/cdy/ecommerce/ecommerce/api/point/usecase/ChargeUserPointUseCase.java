@@ -25,28 +25,32 @@ public class ChargeUserPointUseCase {
     private final UserPointValidator userPointValidator;
     private final UserPointReader userPointReader;
     private final UserPointCharger userPointCharger;
-
     private final UserPointChargerHistory userPointChargerHistory;
 
     /**
-     * 포인트 충전기능
-     * @param request
-     * @return
+     * 포인트 충전 기능
+     * @param request 충전 요청 정보
+     * @return 충전된 사용자 포인트 정보
      */
     public UserPoint execute(PointDTO.Request request) {
-        // 유효성검증 - 요청포인트를 확인합니다.
+        // 유효성 검증 - 요청 포인트를 확인합니다.
         userPointValidator.validate(request.getAmount());
-        // 유저 검증
+
+        // 유저 조회
         Member member = memberReader.read(request.getUserId());
-        // 기존포인트를 조회합니다.
-        UserPoint userPoint = userPointReader.read(request.getUserId());
-        // 충전포인트계산 : 기존포인트와 요청포인트 더하기
-        long chargePoint = userPoint.getPoint() + request.getAmount();
-        // 요청포인트를 충전합니다.
-        UserPoint chargeInfo = userPointCharger.charge(member,chargePoint);
-        // 포인트 요청충전로그를 남깁니다.
-        userPointChargerHistory.add(userPoint,request.getAmount());
-        // 충전포인트 반환
-        return chargeInfo;
+        // 기존 포인트 조회
+        UserPoint userPoint = userPointReader.read(member);
+
+        // 충전 포인트 계산: 기존 포인트와 요청 포인트를 더합니다.
+        userPoint.addPoints(request.getAmount());
+        // 충전 처리: 새로 계산된 충전 포인트를 반영합니다.
+        UserPoint chargedUserPoint = userPointCharger.charge(userPoint);
+
+        // 포인트 충전 로그를 남깁니다.
+        userPointChargerHistory.add(chargedUserPoint, request.getAmount());
+
+        // 충전된 포인트 정보를 반환합니다.
+        return chargedUserPoint;
     }
 }
+

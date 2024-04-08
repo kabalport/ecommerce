@@ -1,5 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.point.business.components;
 
+import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Repositories.IUserPointReaderRepository;
 import lombok.AllArgsConstructor;
@@ -12,10 +13,10 @@ import java.util.Optional;
 public class UserPointReader {
     private final IUserPointReaderRepository IUserPointReaderRepository;
 
-    public UserPoint read(String userId) {
+    public UserPoint read(Member member) {
         // 유저포인트 조회
-        Optional<UserPoint> result = IUserPointReaderRepository.selectUserPoint(userId);
+        Optional<UserPoint> result = IUserPointReaderRepository.selectUserPoint(member.getUserId());
         // 유저포인트 결과가져오기. 없으면 유저포인트 0원 가져오기
-        return result.orElseGet(() -> UserPoint.empty());
+        return result.orElseGet(() -> new UserPoint(member,0L));
     }
 }

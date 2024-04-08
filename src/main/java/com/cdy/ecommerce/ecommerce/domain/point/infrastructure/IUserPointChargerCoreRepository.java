@@ -12,8 +12,8 @@ public class IUserPointChargerCoreRepository implements IUserPointChargerReposit
     private final UserPointJpaRepository userPointJpaRepository;
 
     @Override
-    public void save(UserPoint userPoint) {
-        userPointJpaRepository.save(userPoint);
+    public UserPoint save(UserPoint userPoint) {
+        return userPointJpaRepository.save(userPoint);
     }
 
 }

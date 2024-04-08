@@ -13,10 +13,6 @@ public class IUserPointChargerHistoryCoreRepository  implements IUserPointCharge
 
     @Override
     public void save(UserPointHistory userPointHistory) {
-        System.out.println("===1==");
-        System.out.println(userPointHistory.getUserPoint());
-        System.out.println(userPointHistory.getChangeAmount());
-        System.out.println("===");
         userPointJpaHistoryRepository.save(userPointHistory);
     }
 }

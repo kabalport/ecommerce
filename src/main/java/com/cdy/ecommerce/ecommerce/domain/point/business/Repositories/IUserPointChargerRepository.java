@@ -4,7 +4,7 @@ import com.cdy.ecommerce.ecommerce.domain.member.business.Models.Member;
 import com.cdy.ecommerce.ecommerce.domain.point.business.Models.UserPoint;
 
 public interface IUserPointChargerRepository {
-    void save(UserPoint userPoint);
+    UserPoint save(UserPoint userPoint);
 }
 
 
