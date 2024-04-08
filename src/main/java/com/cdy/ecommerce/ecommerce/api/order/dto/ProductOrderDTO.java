@@ -14,8 +14,16 @@ public class ProductOrderDTO {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Request {
-        private List<ProductOrder> products;
         private String userId;
+        private List<ProductOrderDetail> products;
+    }
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class ProductOrderDetail {
+        private Long productId;
+        private int quantity;
     }
     @Data
     @Builder
@@ -23,7 +31,7 @@ public class ProductOrderDTO {
     @NoArgsConstructor
     public static class Response {
         private Long orderId;
-        private Long userId;
+        private String userId;
         private List<ProductOrder> products;
 
         //private String status;
