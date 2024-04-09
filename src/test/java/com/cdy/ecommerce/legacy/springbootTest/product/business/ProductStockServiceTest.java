@@ -1,8 +1,8 @@
-package com.cdy.ecommerce.ecommerce.domain.product.business;
+package com.cdy.ecommerce.legacy.springbootTest.product.business;
 
 //import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 //import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.StockRepository;
-import org.junit.jupiter.api.AfterEach;
+import com.cdy.ecommerce.ecommerce.api.order.usecase.StockService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ProductStockServiceTest {

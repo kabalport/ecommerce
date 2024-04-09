@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.product.business;
+package com.cdy.ecommerce.ecommerce.api.order.usecase;
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 

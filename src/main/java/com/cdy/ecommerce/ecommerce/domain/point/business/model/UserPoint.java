@@ -41,13 +41,6 @@ public class UserPoint {
         this.point += amount;
     }
     public void decreasePoints(Long amount) {
-        // 포인트 차감 전에 유효성 검사를 수행합니다.
-        if (amount <= 0) {
-            throw new IllegalArgumentException("Amount to decrease must be greater than 0.");
-        }
-        if (this.point < amount) {
-            throw new IllegalArgumentException("Insufficient points.");
-        }
         this.point -= amount;
     }
 }

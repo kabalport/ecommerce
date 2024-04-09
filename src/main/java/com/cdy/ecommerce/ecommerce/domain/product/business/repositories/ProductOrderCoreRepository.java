@@ -1,6 +1,7 @@
-package com.cdy.ecommerce.ecommerce.domain.order;
+package com.cdy.ecommerce.ecommerce.domain.product.business.repositories;
 
-import com.cdy.ecommerce.ecommerce.domain.order.business.ProductOrder;
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductOrder;
+import com.cdy.ecommerce.ecommerce.domain.product.infrastructure.IProductOrderJpaRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 

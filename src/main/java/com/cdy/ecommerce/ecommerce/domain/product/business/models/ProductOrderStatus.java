@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.order.business;
+package com.cdy.ecommerce.ecommerce.domain.product.business.models;
 
 public enum ProductOrderStatus {
     PENDING, // 대기 중
