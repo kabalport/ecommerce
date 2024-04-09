@@ -31,6 +31,16 @@ public class ProductStockRepositoryTests {
 
         log.info("Inserted ProductStock: " + productStock);
     }
+    @Test
+    public void testInsertProductStock2() {
+        Product product = productRepository.findById(2L).orElseThrow(); // 상품 ID가 1인 상품을 먼저 조회
+
+        ProductStock productStock = new ProductStock(product, 100L); // 100개의 재고를 가정
+
+        productStockRepository.save(productStock);
+
+        log.info("Inserted ProductStock: " + productStock);
+    }
 
     @Test
     public void testDecreaseProductStock() {

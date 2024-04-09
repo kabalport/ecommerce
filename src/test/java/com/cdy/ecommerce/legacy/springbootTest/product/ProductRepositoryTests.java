@@ -29,6 +29,18 @@ public class ProductRepositoryTests {
         log.info("Inserted Product: " + product);
     }
 
+    @Test
+    public void testInsertProduct2() {
+        Product product = Product.builder()
+                .name("Sample Product2")
+                .price(10000)
+                .delFlag(false)
+                .build();
+
+        productReaderRepository.save(product);
+
+        log.info("Inserted Product: " + product);
+    }
     public void testInsertHundredProduct() {
         Product product = Product.builder()
                 .name("Sample Product")

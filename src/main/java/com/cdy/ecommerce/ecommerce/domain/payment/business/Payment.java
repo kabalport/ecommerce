@@ -1,11 +1,13 @@
 package com.cdy.ecommerce.ecommerce.domain.payment.business;
 
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -20,17 +22,20 @@ public class Payment {
     @Column(name = "ecommerce_payment_id")
     private Long id;
 
-    // 사용자 Id
-    @Column(name = "member_id")
-    private Long memberId;
+    @OneToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private ProductOrder order;
 
     // 결제 금액
     @Column(name = "ecommerce_payment_paymentMoney")
-    private Long paymentMoney;
+    private BigDecimal amount;
 
     // 결제 날짜와 시간
     @Column(name = "ecommerce_payment_date_time")
     private LocalDateTime paymentDateTime;
+
+    // 결제수단
+    private String paymentMethod;
 
     // 결제 상태
     @Enumerated(EnumType.STRING)
