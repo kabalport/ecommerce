@@ -76,6 +76,12 @@ public class ProductOrderAndPayUseCase {
         // 주문 저장 로직
         productOrderManager.saveOrder(order);
 
+
+
+
+
+
+
         // 사용자 잔액 차감
         userPoint.decreasePoints(totalAmount);
 
