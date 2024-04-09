@@ -28,14 +28,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional
 public class ProductOrderAndPayUseCase {
+    private final ProductOrderValidate productOrderValidate;
     private final MemberReader memberReader;
     private final ProductReader productReader;
-    private final ProductOrderManager productOrderManager;
     private final UserPointReader userPointReader;
-    private final ProductOrderValidate productOrderValidate;
-    private final PaymentManager paymentManager;
 
+    private final ProductOrderManager productOrderManager;
     private final ProductStockManager productStockManager;
+    private final PaymentManager paymentManager;
 
     public ProductOrder execute(ProductOrderDTO.Request request) {
         // 주문요청 유효성 검증

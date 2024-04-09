@@ -19,6 +19,6 @@ public class ProductStockCoreRepository implements IProductStockRepository{
 
     @Override
     public void save(ProductStock productStock) {
-        productStockJpaRepository.save(productStock);
+        productStockJpaRepository.saveAndFlush(productStock);
     }
 }
