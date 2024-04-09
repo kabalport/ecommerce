@@ -17,4 +17,8 @@ public class ProductManager {
         return result;
     }
 
+    public Product save(Product product) {
+        Product result  = productRepository.save(product);
+        return result;
+    }
 }

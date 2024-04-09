@@ -1,6 +1,7 @@
 package com.cdy.ecommerce.ecommerce.domain.product.business.components;
 
 
+import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.IProductStockManagerRepository;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.product.IProductStockRepository;
@@ -18,5 +19,9 @@ public class ProductStockManager {
 
         productStock.decrease(quantity);
         productStockRepository.save(productStock);
+    }
+
+    public void save(ProductStock stock) {
+        productStockRepository.save(stock);
     }
 }

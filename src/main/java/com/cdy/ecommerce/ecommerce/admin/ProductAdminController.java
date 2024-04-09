@@ -16,22 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 @Log4j2
 @RequestMapping("/api/admin/products")
 public class ProductAdminController {
-
-    private final GetProductUseCase getProductUseCase;
     private final RegisterProductUseCase registerProductUseCase;
 
     /**
      * 상품 등록 API
      */
     @PostMapping
-    public ProductDTO.Response register(@RequestBody ProductDTO.Request request) {
+    public ProductAdminDTO.Response register(@RequestBody ProductAdminDTO.Request request) {
         // 서비스 호출
         Product response = registerProductUseCase.execute(request);
         return entityToDTO(response);
     }
 
-    private ProductDTO.Response entityToDTO(Product product) {
+    private ProductAdminDTO.Response entityToDTO(Product product) {
         // 변환
-        return ProductDTO.Response.builder().id(product.getId()).name(product.getName()).price(product.getPrice()).build();
+        return ProductAdminDTO.Response.builder().id(product.getId()).name(product.getName()).price(product.getPrice()).build();
     }
 }
