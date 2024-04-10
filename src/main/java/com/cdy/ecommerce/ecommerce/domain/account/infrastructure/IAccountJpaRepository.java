@@ -1,6 +1,6 @@
-package com.cdy.ecommerce.ecommerce.domain.account.repository;
+package com.cdy.ecommerce.ecommerce.domain.account.infrastructure;
 
-import com.cdy.ecommerce.ecommerce.domain.account.Account;
+import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

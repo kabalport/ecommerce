@@ -1,7 +1,10 @@
-package com.cdy.ecommerce.ecommerce.domain.account;
+package com.cdy.ecommerce.ecommerce.domain.account.business.model;
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,6 +13,9 @@ import java.time.LocalDateTime;
  * 거래정보
  */
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

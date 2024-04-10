@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.account;
+package com.cdy.ecommerce.ecommerce.domain.account.business.model;
 
 public enum TransactionType {
     CHARGE,

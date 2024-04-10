@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.account;
+package com.cdy.ecommerce.ecommerce.domain.account.business.model;
 
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import jakarta.persistence.*;

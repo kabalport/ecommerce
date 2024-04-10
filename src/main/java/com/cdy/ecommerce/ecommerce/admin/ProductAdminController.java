@@ -1,7 +1,6 @@
 package com.cdy.ecommerce.ecommerce.admin;
 
-import com.cdy.ecommerce.ecommerce.api.product.dto.ProductDTO;
-import com.cdy.ecommerce.ecommerce.api.product.usecase.GetProductUseCase;
+
 import com.cdy.ecommerce.ecommerce.api.product.usecase.RegisterProductUseCase;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import lombok.RequiredArgsConstructor;

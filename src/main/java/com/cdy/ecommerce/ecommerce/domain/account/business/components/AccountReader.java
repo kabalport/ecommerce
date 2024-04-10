@@ -1,7 +1,7 @@
-package com.cdy.ecommerce.ecommerce.domain.account.components;
+package com.cdy.ecommerce.ecommerce.domain.account.business.components;
 
-import com.cdy.ecommerce.ecommerce.domain.account.Account;
-import com.cdy.ecommerce.ecommerce.domain.account.repository.IAccountReaderRepository;
+import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
+import com.cdy.ecommerce.ecommerce.domain.account.business.repository.IAccountReaderRepository;
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;

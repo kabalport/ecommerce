@@ -14,10 +14,5 @@ public interface IUserPointJpaRepository extends JpaRepository<UserPoint, Long> 
     @Query("SELECT up FROM UserPoint up WHERE up.member.userId = ?1")
     Optional<UserPoint> findByUserId(@Param("userId") String userId);
 
-    @Transactional
-    @Modifying
-    @Query("UPDATE UserPoint up SET up.point = :newPointsBalance WHERE up.member.userId = :userId")
-    void updatePoint(@Param("userId") String userId, @Param("newPointsBalance") long newPointsBalance);
-
 }
 
