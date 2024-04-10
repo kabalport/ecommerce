@@ -9,8 +9,10 @@ import java.util.Optional;
 @Repository
 @AllArgsConstructor
 public class AccountReaderCoreRepository implements IAccountReaderRepository{
+
+    private IAccountJpaRepository accountJpaRepository;
     @Override
     public Optional<Account> findAccount(String userId) {
-        return Optional.empty();
+        return accountJpaRepository.findByUserId(userId);
     }
 }
