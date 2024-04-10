@@ -9,4 +9,4 @@ https://www.notion.so/637c45e66cf248239c745f9a1cf0f137
 
 [깃허브 위키]
 문서 마이그레이션
-문서폴더 vscode 작업
+문서폴더 원본두기
