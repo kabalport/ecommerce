@@ -33,7 +33,7 @@ public class ProductOrderController {
                 .map(item -> ProductOrderDTO.OrderItem.builder()
                         .productId(item.getProduct().getId())
                         .quantity(item.getQuantity())
-                        .price(BigDecimal.valueOf(item.getPrice()))
+                        .price(item.getPrice())
                         .build())
                 .collect(Collectors.toList());
 

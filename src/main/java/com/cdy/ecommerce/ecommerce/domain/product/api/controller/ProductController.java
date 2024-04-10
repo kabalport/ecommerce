@@ -30,7 +30,7 @@ public class ProductController {
 
   private ProductDTO.Response entityToDTO(Product product) {
     // 변환
-    return ProductDTO.Response.builder().id(product.getId()).name(product.getName()).price(product.getPrice()).stock(product.getProductStock().getQuantity()).build();
+    return ProductDTO.Response.builder().id(product.getId()).name(product.getName()).price(product.getPrice().intValue()).stock(product.getProductStock().getQuantity()).build();
   }
 
 }

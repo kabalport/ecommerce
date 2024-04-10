@@ -3,6 +3,8 @@ package com.cdy.ecommerce.ecommerce.domain.product.business.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "ecommerce_product")
 @Getter
@@ -20,7 +22,7 @@ public class Product {
     @Column(name = "product_name")
     private String name;
     @Column(name = "product_price")
-    private int price;
+    private BigDecimal price;
 
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private ProductStock productStock;
@@ -30,7 +32,7 @@ public class Product {
     public void changeName(String name){
         this.name = name;
     }
-    public void changePrice(int price) {
+    public void changePrice(BigDecimal price) {
         this.price = price;
     }
 

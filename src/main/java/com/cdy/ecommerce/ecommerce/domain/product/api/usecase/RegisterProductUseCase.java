@@ -21,14 +21,13 @@ public class RegisterProductUseCase {
      */
     public Product execute(ProductAdminDTO.Request request) {
         // 상품 정보를 바탕으로 상품 객체 생성
-        Product product = Product.builder().build();
+        Product product = Product.builder().price(request.getPrice()).name(request.getName()).build();
 
         // 상품을 데이터베이스에 저장
         product = productManager.save(product);
 
         // 요청된 초기 재고 수량으로 재고 객체 생성
         ProductStock stock = new ProductStock(product, request.getInitialStock());
-
         // 초기 재고를 데이터베이스에 저장
         productStockManager.save(stock);
 

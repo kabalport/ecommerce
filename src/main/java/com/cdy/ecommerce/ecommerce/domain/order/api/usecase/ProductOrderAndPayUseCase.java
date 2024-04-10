@@ -2,6 +2,7 @@ package com.cdy.ecommerce.ecommerce.domain.order.api.usecase;
 
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountException;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountReader;
+import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountValidator;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
 import com.cdy.ecommerce.ecommerce.domain.order.api.dto.ProductOrderDTO;
 import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;
@@ -32,9 +33,9 @@ import java.util.stream.Collectors;
 @Transactional
 public class ProductOrderAndPayUseCase {
     private final ProductOrderValidate productOrderValidate;
+    private final AccountValidator accountValidator;
     private final MemberReader memberReader;
     private final ProductReader productReader;
-//    private final UserPointReader userPointReader;
     private final AccountReader accountReader;
 
     private final ProductOrderManager productOrderManager;
@@ -46,41 +47,24 @@ public class ProductOrderAndPayUseCase {
         productOrderValidate.validate(request);
         // 유저 조회
         Member member = memberReader.read(request.getUserId());
-
-
         // 주문 항목 준비
         List<ProductOrderItem> items = request.getProducts().stream().map(detail -> {
             Product product = productReader.read(detail.getProductId());
-
             productStockManager.decreaseStock(detail.getProductId(), detail.getQuantity());
-
             // 주문 항목 객체 생성
             return new ProductOrderItem(product, detail.getQuantity(), product.getPrice());
         }).collect(Collectors.toList());
 
         // 요청된 모든 상품에 대해 총 금액 계산
-//        long totalAmount = request.getProducts().stream().mapToLong(productOrder -> {
-//            Product product = productReader.read(productOrder.getProductId());
-//            return product.getPrice() * productOrder.getQuantity();
-//        }).sum();
-        int totalAmount = request.getProducts().stream().mapToInt(productOrder -> {
-            Product product = productReader.read(productOrder.getProductId());
-            return product.getPrice() * productOrder.getQuantity();
-        }).sum();
+        BigDecimal totalAmount = items.stream()
+                .map(item -> item.getProduct().getPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
 
         // 사용자 포인트 정보 조회 및 검증
-//        UserPoint userPoint = userPointReader.read(member);
-//        if (userPoint.getPoint() < totalAmount) {
-//            throw new PointException("잔액이 부족합니다.");
-//        }
         Account account = accountReader.read(member);
-        if(account.getBalance() < BigDecimal.valueOf(totalAmount)){
-            throw new AccountException("잔액이 부족합니다.");
-        }
-
+        accountValidator.validatePurchase(account, totalAmount);
         // 사용자 잔액 차감
         account.purchase(totalAmount);
-
         // 주문 엔티티 생성
         ProductOrder order = ProductOrder.builder()
                 .member(member)
@@ -88,14 +72,11 @@ public class ProductOrderAndPayUseCase {
                 .status(ProductOrderStatus.PENDING)
                 .items(items)
                 .build();
-
         // 주문 저장 로직
         productOrderManager.saveOrder(order);
-
-        paymentManager.createPayment(order, BigDecimal.valueOf(totalAmount), "결제수단");
+        paymentManager.createPayment(order, totalAmount, "결제수단");
         // 데이터 플랫폼으로 주문 정보 전송
         sendDataToDataPlatform(order);
-
         // 주문 정보 반환
         return order;
     }
