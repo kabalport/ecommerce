@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.admin;
+package com.cdy.ecommerce.ecommerce.api.v1.admin;
 
 
 import com.cdy.ecommerce.ecommerce.domain.product.presentation.usecase.RegisterProductUseCase;

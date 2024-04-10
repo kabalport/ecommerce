@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain;
+package com.cdy.ecommerce.ecommerce.api;
 
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.exception.MemberException;
 import com.cdy.ecommerce.ecommerce.domain.product.business.model.ProductException;

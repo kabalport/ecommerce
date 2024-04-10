@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.product.presentation.usecase;
 
-import com.cdy.ecommerce.ecommerce.admin.ProductAdminDTO;
+import com.cdy.ecommerce.ecommerce.api.v1.admin.ProductAdminDTO;
 import com.cdy.ecommerce.ecommerce.domain.product.business.component.ProductManager;
 import com.cdy.ecommerce.ecommerce.domain.product.business.component.ProductStockManager;
 import com.cdy.ecommerce.ecommerce.domain.product.business.model.Product;

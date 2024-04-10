@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.admin;
+package com.cdy.ecommerce.ecommerce.api.v1.admin;
 
 
 import lombok.AllArgsConstructor;
