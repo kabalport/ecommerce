@@ -1,7 +1,7 @@
 package com.cdy.ecommerce.legacy.springbootTest.product;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
-import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
+import com.cdy.ecommerce.ecommerce.domain.product.business.model.Product;
+import com.cdy.ecommerce.ecommerce.domain.product.business.model.ProductStock;
 
 import com.cdy.ecommerce.ecommerce.domain.product.infrastructure.IProductJpaRepository;
 import com.cdy.ecommerce.ecommerce.domain.product.infrastructure.IProductStockJpaRepository;

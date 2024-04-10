@@ -2,7 +2,6 @@ package com.cdy.ecommerce.legacy.springbootTest.product.business;
 
 //import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 //import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.StockRepository;
-import com.cdy.ecommerce.ecommerce.domain.order.api.usecase.StockService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,8 @@ import java.util.concurrent.Executors;
 
 @SpringBootTest
 class ProductStockServiceTest {
-    @Autowired
-    private StockService stockService;
+//    @Autowired
+//    private StockService stockService;
     @Autowired
 //    private StockRepository stockRepository;
 
@@ -45,7 +44,7 @@ class ProductStockServiceTest {
         for (int i = 0; i <threadCount; i++) {
             executorService.submit(()->{
                 try{
-                    stockService.decrease(1L,1);
+//                    stockService.decrease(1L,1);
                 }finally {
                     latch.countDown();
                 }

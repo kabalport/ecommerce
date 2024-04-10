@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.payment.business;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductOrder;
+import com.cdy.ecommerce.ecommerce.domain.order.business.model.ProductOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.payment.business;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductOrder;
+import com.cdy.ecommerce.ecommerce.domain.order.business.model.ProductOrder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +18,7 @@ public class PaymentManager {
                 .amount(amount)
                 .paymentDateTime(LocalDateTime.now())
                 .paymentMethod(paymentMethod)
-                .status(PaymentStatus.SUCCESS) // 예시로 SUCCESS를 사용했습니다.
+                .status(PaymentStatus.SUCCESS)
                 .build();
         return paymentRepository.save(payment);
     }

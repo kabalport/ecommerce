@@ -1,6 +1,7 @@
 package com.cdy.ecommerce.ecommerce.domain.account.business.components;
 
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
+import com.cdy.ecommerce.ecommerce.domain.account.business.model.AccountException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -1,7 +1,7 @@
 package com.cdy.ecommerce.ecommerce.domain;
 
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.exception.MemberException;
-import com.cdy.ecommerce.ecommerce.domain.product.ProductException;
+import com.cdy.ecommerce.ecommerce.domain.product.business.model.ProductException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

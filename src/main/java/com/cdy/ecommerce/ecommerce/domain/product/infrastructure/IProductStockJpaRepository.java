@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.product.infrastructure;
 
-import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
+import com.cdy.ecommerce.ecommerce.domain.product.business.model.ProductStock;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
