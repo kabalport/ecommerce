@@ -1,9 +1,9 @@
-package com.cdy.ecommerce.ecommerce.domain.order.prensatation.usecase;
+package com.cdy.ecommerce.ecommerce.api.v1.order.usecase;
 
+import com.cdy.ecommerce.ecommerce.api.v1.order.controller.ProductOrderDTO;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountReader;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountValidator;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
-import com.cdy.ecommerce.ecommerce.domain.order.prensatation.controller.ProductOrderDTO;
 import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import com.cdy.ecommerce.ecommerce.domain.payment.business.PaymentManager;

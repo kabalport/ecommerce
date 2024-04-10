@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.order.prensatation.controller;
+package com.cdy.ecommerce.ecommerce.api.v1.order.controller;
 
 import lombok.Builder;
 import lombok.Getter;

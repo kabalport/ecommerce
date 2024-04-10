@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.account.presentation.usecase;
+package com.cdy.ecommerce.ecommerce.api.v1.account.usecase;
 
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountReader;

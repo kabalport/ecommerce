@@ -1,11 +1,11 @@
-package com.cdy.ecommerce.ecommerce.domain.account.presentation.usecase;
+package com.cdy.ecommerce.ecommerce.api.v1.account.usecase;
 
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountTransactionManager;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountManager;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountReader;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountValidator;
-import com.cdy.ecommerce.ecommerce.domain.account.presentation.controller.AccountDTO;
+import com.cdy.ecommerce.ecommerce.api.v1.account.controller.AccountDTO;
 import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import lombok.RequiredArgsConstructor;

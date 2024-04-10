@@ -1,7 +1,7 @@
-package com.cdy.ecommerce.ecommerce.domain.product.presentation.controller;
+package com.cdy.ecommerce.ecommerce.api.v1.product.controller;
 
 
-import com.cdy.ecommerce.ecommerce.domain.product.presentation.usecase.GetProductUseCase;
+import com.cdy.ecommerce.ecommerce.api.v1.product.usecase.GetProductUseCase;
 import com.cdy.ecommerce.ecommerce.domain.product.business.model.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

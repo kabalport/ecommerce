@@ -1,8 +1,8 @@
-package com.cdy.ecommerce.ecommerce.domain.account.presentation.controller;
+package com.cdy.ecommerce.ecommerce.api.v1.account.controller;
 
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
-import com.cdy.ecommerce.ecommerce.domain.account.presentation.usecase.ChargeBalanceUseCase;
-import com.cdy.ecommerce.ecommerce.domain.account.presentation.usecase.GetBalanceUseCase;
+import com.cdy.ecommerce.ecommerce.api.v1.account.usecase.ChargeBalanceUseCase;
+import com.cdy.ecommerce.ecommerce.api.v1.account.usecase.GetBalanceUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

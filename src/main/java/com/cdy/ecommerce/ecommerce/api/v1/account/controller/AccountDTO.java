@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.account.presentation.controller;
+package com.cdy.ecommerce.ecommerce.api.v1.account.controller;
 
 import lombok.Builder;
 import lombok.Getter;

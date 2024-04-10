@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.cart.presentation;
+package com.cdy.ecommerce.ecommerce.api.v1.cart;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

@@ -1,6 +1,6 @@
-package com.cdy.ecommerce.ecommerce.domain.order.prensatation.controller;
+package com.cdy.ecommerce.ecommerce.api.v1.order.controller;
 
-import com.cdy.ecommerce.ecommerce.domain.order.prensatation.usecase.ProductOrderAndPayUseCase;
+import com.cdy.ecommerce.ecommerce.api.v1.order.usecase.ProductOrderAndPayUseCase;
 import com.cdy.ecommerce.ecommerce.domain.order.business.model.ProductOrder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

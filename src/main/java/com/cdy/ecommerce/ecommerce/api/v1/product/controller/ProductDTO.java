@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.ecommerce.domain.product.presentation.controller;
+package com.cdy.ecommerce.ecommerce.api.v1.product.controller;
 
 import lombok.*;
 
