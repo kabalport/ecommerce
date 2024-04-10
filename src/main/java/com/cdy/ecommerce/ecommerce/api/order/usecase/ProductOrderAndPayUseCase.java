@@ -43,6 +43,17 @@ public class ProductOrderAndPayUseCase {
         // 유저 조회
         Member member = memberReader.read(request.getUserId());
 
+
+        // 주문 항목 준비
+        List<ProductOrderItem> items = request.getProducts().stream().map(detail -> {
+            Product product = productReader.read(detail.getProductId());
+
+            productStockManager.decreaseStock(detail.getProductId(), detail.getQuantity());
+
+            // 주문 항목 객체 생성
+            return new ProductOrderItem(product, detail.getQuantity(), product.getPrice());
+        }).collect(Collectors.toList());
+
         // 요청된 모든 상품에 대해 총 금액 계산
         long totalAmount = request.getProducts().stream().mapToLong(productOrder -> {
             Product product = productReader.read(productOrder.getProductId());
@@ -55,15 +66,8 @@ public class ProductOrderAndPayUseCase {
             throw new PointException("잔액이 부족합니다.");
         }
 
-        // 주문 항목 준비
-        List<ProductOrderItem> items = request.getProducts().stream().map(detail -> {
-            Product product = productReader.read(detail.getProductId());
-
-            productStockManager.decreaseStock(detail.getProductId(), detail.getQuantity());
-
-            // 주문 항목 객체 생성
-            return new ProductOrderItem(product, detail.getQuantity(), product.getPrice());
-        }).collect(Collectors.toList());
+        // 사용자 잔액 차감
+        userPoint.decreasePoints(totalAmount);
 
         // 주문 엔티티 생성
         ProductOrder order = ProductOrder.builder()
@@ -77,13 +81,6 @@ public class ProductOrderAndPayUseCase {
         productOrderManager.saveOrder(order);
 
 
-
-
-
-
-
-        // 사용자 잔액 차감
-        userPoint.decreasePoints(totalAmount);
 
         paymentManager.createPayment(order, BigDecimal.valueOf(totalAmount), "결제수단");
         // 데이터 플랫폼으로 주문 정보 전송

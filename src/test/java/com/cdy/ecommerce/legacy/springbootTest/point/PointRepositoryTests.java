@@ -3,7 +3,7 @@ package com.cdy.ecommerce.legacy.springbootTest.point;
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import com.cdy.ecommerce.ecommerce.domain.member.business.repository.MemberReaderRepository;
 import com.cdy.ecommerce.ecommerce.domain.point.business.model.UserPoint;
-import com.cdy.ecommerce.ecommerce.domain.point.business.repositories.IUserPointChargerRepository;
+
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Log4j2
 public class PointRepositoryTests {
-    @Autowired
-    private IUserPointChargerRepository iUserPointChargerRepository;
 
     @Autowired
     private MemberReaderRepository memberReaderRepository; // Member 조회를 위한 Repository
