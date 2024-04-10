@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class ProductStockManager {
     private final IProductStockRepository productStockRepository;
 
-    public void decreaseStock(Long productId, Long quantity) {
+    public void decreaseStock(Long productId, int quantity) {
         ProductStock productStock = productStockRepository.findByProductId(productId)
                 .orElseThrow(() -> new IllegalStateException("Stock not found for product: " + productId));
 

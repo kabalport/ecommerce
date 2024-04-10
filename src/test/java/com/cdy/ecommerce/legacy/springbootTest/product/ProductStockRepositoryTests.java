@@ -25,7 +25,7 @@ public class ProductStockRepositoryTests {
     public void testInsertProductStock() {
         Product product = productRepository.findById(1L).orElseThrow(); // 상품 ID가 1인 상품을 먼저 조회
 
-        ProductStock productStock = new ProductStock(product, 100L); // 100개의 재고를 가정
+        ProductStock productStock = new ProductStock(product, 100); // 100개의 재고를 가정
 
         productStockRepository.save(productStock);
 
@@ -35,7 +35,7 @@ public class ProductStockRepositoryTests {
     public void testInsertProductStock2() {
         Product product = productRepository.findById(2L).orElseThrow(); // 상품 ID가 1인 상품을 먼저 조회
 
-        ProductStock productStock = new ProductStock(product, 100L); // 100개의 재고를 가정
+        ProductStock productStock = new ProductStock(product, 100); // 100개의 재고를 가정
 
         productStockRepository.save(productStock);
 
@@ -47,7 +47,7 @@ public class ProductStockRepositoryTests {
         Long productStockId = 1L; // 상품 재고 ID가 1인 상품 재고를 가정
 
         ProductStock productStock = productStockRepository.findById(productStockId).orElseThrow();
-        productStock.decrease(10L); // 재고 10개 감소
+        productStock.decrease(10); // 재고 10개 감소
 
         productStockRepository.save(productStock);
 

@@ -26,12 +26,12 @@ public class ProductOrderItem {
     private Product product;
 
     @Column(name = "quantity")
-    private Long quantity;
+    private int quantity;
 
     @Column(name = "price")
     private double price;
 
-    public ProductOrderItem(Product product, Long quantity, double price) {
+    public ProductOrderItem(Product product, int quantity, double price) {
         this.product = product;
         this.quantity = quantity;
         this.price = price;

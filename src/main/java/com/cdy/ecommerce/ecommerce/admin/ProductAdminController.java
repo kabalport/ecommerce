@@ -1,7 +1,7 @@
 package com.cdy.ecommerce.ecommerce.admin;
 
 
-import com.cdy.ecommerce.ecommerce.api.product.usecase.RegisterProductUseCase;
+import com.cdy.ecommerce.ecommerce.domain.product.api.usecase.RegisterProductUseCase;
 import com.cdy.ecommerce.ecommerce.domain.product.business.models.Product;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
