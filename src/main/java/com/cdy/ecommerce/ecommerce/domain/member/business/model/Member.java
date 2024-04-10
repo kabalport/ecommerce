@@ -23,11 +23,14 @@ public class Member {
   @Column(name = "user_id")
   private String userId;
 
+  @Column(name = "nick_name")
+  private String nickName;
+
+  @Column(name = "email")
+  private String email;
+
   @Column(name = "pw")
   private String pw;
-
-  @Column(name = "nick_name")
-  private String nickname;
 
   @ElementCollection(fetch = FetchType.LAZY)
   @Builder.Default
@@ -35,8 +38,6 @@ public class Member {
   private List<MemberRole> memberRoleList = new ArrayList<>();
 
   public void addRole(MemberRole memberRole) {
-
     memberRoleList.add(memberRole);
   }
-
 }

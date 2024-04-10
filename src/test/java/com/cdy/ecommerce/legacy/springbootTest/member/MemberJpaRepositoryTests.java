@@ -27,7 +27,8 @@ public class MemberJpaRepositoryTests {
           Member.builder()
               .userId("user" + i)
               .pw("1111")
-                  .nickname("nickname" + i)
+                  .nickName("nickname" + i)
+                  .email("user"+i+"@"+"ecommerce.com")
               .build();
 
       member.addRole(MemberRole.USER);
