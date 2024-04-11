@@ -1,10 +1,10 @@
 package com.cdy.ecommerce.ecommerce.domain.payment.business;
 
 import com.cdy.ecommerce.ecommerce.domain.order.business.model.ProductOrder;
+import com.cdy.ecommerce.ecommerce.domain.payment.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Component
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class PaymentManager {
     private final PaymentRepository paymentRepository;
 
-    public Payment createPayment(ProductOrder order, BigDecimal amount, String paymentMethod) {
+    public Payment createPayment(ProductOrder order, int amount, String paymentMethod) {
         Payment payment = Payment.builder()
                 .order(order)
                 .amount(amount)

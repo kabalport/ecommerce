@@ -28,17 +28,17 @@ public class ChargeBalanceUseCase {
      */
     public Account execute(AccountDTO.Request request) {
         // 유효성 검증 - 충전금액를 확인합니다.
-        accountValidator.validateChargeAmount(request.getBalance());
+        accountValidator.validateChargeAmount(request.getAmount());
         // 유저 조회
         Member member = memberReader.read(request.getUserId());
         // 잔액 조회
         Account account = accountReader.read(member);
         // 충전 잔액 계산 : 기존 잔액에 충전금을 더합니다.
-        account.charge(request.getBalance());
+        account.charge(request.getAmount());
         // 충전 처리 : 새로 계산된 충전금을 반영합니다.
         Account chargedBalance = accountManager.charge(account);
         // 잔액 충전 로그를 남깁니다.
-        accountTransactionManager.add(chargedBalance,request.getBalance());
+        accountTransactionManager.add(chargedBalance,request.getAmount());
         // 충전된 잔액 정보를 반환합니다.
         return chargedBalance;
     }

@@ -19,7 +19,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,9 +51,9 @@ public class ProductOrderAndPayUseCase {
         }).collect(Collectors.toList());
 
         // 요청된 모든 상품에 대해 총 금액 계산
-        BigDecimal totalAmount = items.stream()
-                .map(item -> item.getProduct().getPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        int totalAmount = items.stream()
+                .mapToInt(item -> item.getProduct().getPrice() * item.getQuantity())
+                .sum();
 
         // 사용자 포인트 정보 조회 및 검증
         Account account = accountReader.read(member);

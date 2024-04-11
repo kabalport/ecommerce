@@ -7,7 +7,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 
 /**
  * 계좌
@@ -25,21 +24,21 @@ public class Account {
     @OneToOne
     private Member member;
 
-    private BigDecimal balance;
+    private int balance;
 
 
     public static Account empty(Member member){
         return Account.builder()
                 .member(member)
-                .balance(BigDecimal.valueOf(0))
+                .balance(0)
                 .build();
     }
 
-    public void charge(BigDecimal amount) {
-        this.balance = this.balance.add(amount);
+    public void charge(int amount) {
+        this.balance += amount; // amount를 balance에 추가
     }
 
-    public void purchase(BigDecimal amount) {
-        this.balance = this.balance.subtract(amount);
+    public void purchase(int amount) {
+        this.balance -= amount; // balance에서 amount를 차감
     }
 }

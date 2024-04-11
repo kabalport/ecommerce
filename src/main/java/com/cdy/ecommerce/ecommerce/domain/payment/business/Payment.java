@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -28,7 +28,7 @@ public class Payment {
 
     // 결제 금액
     @Column(name = "ecommerce_payment_paymentMoney")
-    private BigDecimal amount;
+    private int amount;
 
     // 결제 날짜와 시간
     @Column(name = "ecommerce_payment_date_time")

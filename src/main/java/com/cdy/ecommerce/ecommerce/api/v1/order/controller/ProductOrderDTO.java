@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 
 public class ProductOrderDTO {
@@ -28,7 +28,7 @@ public class ProductOrderDTO {
         private Long orderId;
         private String status;
         private List<OrderItem> items;
-        private BigDecimal totalAmount;
+        private int totalAmount;
     }
 
     @Getter
@@ -36,7 +36,7 @@ public class ProductOrderDTO {
     public static class OrderItem {
         private Long productId;
         private int quantity;
-        private BigDecimal price;
+        private int price;
     }
 
 }

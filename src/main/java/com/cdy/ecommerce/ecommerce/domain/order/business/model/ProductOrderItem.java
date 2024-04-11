@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+
 
 @Entity
 @Table(name = "ecommerce_product_order_item")
@@ -32,9 +32,9 @@ public class ProductOrderItem {
     private int quantity;
 
     @Column(name = "price")
-    private BigDecimal price;
+    private int price;
 
-    public ProductOrderItem(Product product, int quantity, BigDecimal price) {
+    public ProductOrderItem(Product product, int quantity, int price) {
         this.product = product;
         this.quantity = quantity;
         this.price = price;

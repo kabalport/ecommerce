@@ -7,7 +7,6 @@ import com.cdy.ecommerce.ecommerce.domain.account.business.repository.ITransacti
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Component
@@ -15,7 +14,7 @@ import java.time.LocalDateTime;
 public class AccountTransactionManager {
     private final ITransactionHistoryRepository transactionHistoryRepository;
 
-    public void add(Account account, BigDecimal amount){
+    public void add(Account account, int amount){
         AccountTransaction transaction = AccountTransaction
                 .builder()
                 .account(account)

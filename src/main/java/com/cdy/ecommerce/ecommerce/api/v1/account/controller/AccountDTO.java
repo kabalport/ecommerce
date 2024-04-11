@@ -1,21 +1,23 @@
 package com.cdy.ecommerce.ecommerce.api.v1.account.controller;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
-import java.math.BigDecimal;
+
 
 public class AccountDTO {
     @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class Request{
         private String userId;
-        private BigDecimal balance;
+        private int amount;
     }
     @Getter
     @Builder
     public static class Response{
-        private BigDecimal balance;
-        public Response(BigDecimal balance){
+        private int balance;
+        public Response(int balance){
             this.balance = balance;
         }
     }

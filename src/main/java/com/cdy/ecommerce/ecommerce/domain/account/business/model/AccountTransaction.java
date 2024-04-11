@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+
 import java.time.LocalDateTime;
 
 /**
@@ -25,7 +25,7 @@ public class AccountTransaction {
     private Account account;
 
     private LocalDateTime transactionTime;
-    private BigDecimal amount;
+    private int amount;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "transaction_type")

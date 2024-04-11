@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +32,7 @@ public class ProductOrderController {
                 .map(item -> ProductOrderDTO.OrderItem.builder()
                         .productId(item.getProduct().getId())
                         .quantity(item.getQuantity())
-                        .price(item.getPrice())
+                        .price(item.getPrice()) // 가정: ProductOrder의 item 가격이 이미 int로 변경되었음
                         .build())
                 .collect(Collectors.toList());
 
@@ -44,9 +44,9 @@ public class ProductOrderController {
                 .build();
     }
 
-    private BigDecimal calculateTotalAmount(List<ProductOrderDTO.OrderItem> items) {
+    private int calculateTotalAmount(List<ProductOrderDTO.OrderItem> items) {
         return items.stream()
-                .map(item -> item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
+                .mapToInt(item -> item.getPrice() * item.getQuantity())
+                .sum();
     }
 }
