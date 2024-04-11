@@ -32,7 +32,7 @@ public class ProductOrderController {
                 .map(item -> ProductOrderDTO.OrderItem.builder()
                         .productId(item.getProduct().getId())
                         .quantity(item.getQuantity())
-                        .price(item.getPrice()) // 가정: ProductOrder의 item 가격이 이미 int로 변경되었음
+                        .price(item.getPrice())
                         .build())
                 .collect(Collectors.toList());
 
