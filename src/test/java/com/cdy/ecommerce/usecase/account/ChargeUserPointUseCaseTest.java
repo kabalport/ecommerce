@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.usecase;
+package com.cdy.ecommerce.usecase.account;
 
 
 import com.cdy.ecommerce.ecommerce.api.v1.account.usecase.ChargeBalanceUseCase;
@@ -10,7 +10,7 @@ import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.AccountError;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.AccountException;
 import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;
-import com.cdy.ecommerce.usecase.stub.AccountSteps;
+import com.cdy.ecommerce.usecase.account.stub.AccountSteps;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
