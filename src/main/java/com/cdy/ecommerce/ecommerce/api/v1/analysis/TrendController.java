@@ -19,9 +19,7 @@ public class TrendController {
         return getTrendProductsUseCase.execute();
     }
 
-    @Getter
-    @NoArgsConstructor
-    public static class TrendDTO {
+    public class TrendDTO {
         private Long productId;
         private String productName;
         private Long totalQuantity;

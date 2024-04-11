@@ -20,15 +20,6 @@ public class GetTrendProductsUseCase {
     private final ProductReader productReader;
 
     public List<TrendDTO> execute() {
-        LocalDate oneWeekAgo = LocalDate.now().minusWeeks(1);
-        LocalDate today = LocalDate.now();
-
-        // 상위 5개 상품을 조회하기 위한 Pageable 객체 생성
-        Pageable topFive = PageRequest.of(0, 5);
-
-        // 상품 조회
-        List<TrendDTO> topSellingProducts = productOrderManager.findTopSellingProducts(oneWeekAgo, today, topFive);
-
-        return topSellingProducts;
+        return List.of();
     }
 }

@@ -11,6 +11,5 @@ public interface IProductOrderRepository {
 
     ProductOrder save(ProductOrder productOrder);
 
-    List<TrendController.TrendDTO> findTopSellingProducts(LocalDate startDate, LocalDate endDate, Pageable pageable);
 
 }

@@ -20,8 +20,5 @@ public class ProductOrderCoreRepository implements IProductOrderRepository{
         return productOrderJpaRepository.save(productOrder);
     }
 
-    @Override
-    public List<TrendController.TrendDTO> findTopSellingProducts(LocalDate startDate, LocalDate endDate, Pageable pageable) {
-        return productOrderJpaRepository.findTopSellingProducts(startDate, endDate, pageable);
-    }
+
 }

@@ -20,8 +20,6 @@ public class ProductOrderManager {
         productOrderRepository.save(order);
     }
 
-    public List<TrendController.TrendDTO> findTopSellingProducts(LocalDate oneWeekAgo, LocalDate today, Pageable topFive) {
-       return productOrderRepository.findTopSellingProducts(oneWeekAgo,today,topFive);
-    }
+
 
 }
