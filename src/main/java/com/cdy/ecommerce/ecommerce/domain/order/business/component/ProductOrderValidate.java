@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.ecommerce.domain.order.business.component;
 
-import com.cdy.ecommerce.ecommerce.api.v1.order.controller.ProductOrderDTO;
+import com.cdy.ecommerce.ecommerce.admin.v1.order.controller.ProductOrderDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

@@ -1,8 +1,8 @@
 package com.cdy.ecommerce.usecase.account;
 
 
-import com.cdy.ecommerce.ecommerce.api.v1.account.controller.AccountDTO;
-import com.cdy.ecommerce.ecommerce.api.v1.account.usecase.ChargeBalanceUseCase;
+import com.cdy.ecommerce.ecommerce.admin.v1.account.controller.AccountDTO;
+import com.cdy.ecommerce.ecommerce.admin.v1.account.usecase.ChargeBalanceUseCase;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountManager;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountReader;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountTransactionManager;

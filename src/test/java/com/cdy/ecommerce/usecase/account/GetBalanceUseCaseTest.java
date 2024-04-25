@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.usecase.account;
 
-import com.cdy.ecommerce.ecommerce.api.v1.account.usecase.GetBalanceUseCase;
+import com.cdy.ecommerce.ecommerce.admin.v1.account.usecase.GetBalanceUseCase;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountReader;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
 import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;

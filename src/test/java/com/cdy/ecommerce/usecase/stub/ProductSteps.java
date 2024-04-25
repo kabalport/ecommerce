@@ -1,6 +1,6 @@
 package com.cdy.ecommerce.usecase.stub;
 
-import com.cdy.ecommerce.ecommerce.api.v1.product.controller.ProductDTO;
+import com.cdy.ecommerce.ecommerce.domain.product.api.ProductDTO;
 
 import java.math.BigDecimal;
 
