@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.legacy.springbootTest.member;
+package com.cdy.ecommerce.usecase.legacy.springbootTest.member;
 
 import com.cdy.ecommerce.ecommerce.domain.member.business.repository.MemberReaderRepository;
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;

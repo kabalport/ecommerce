@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.legacy.springbootTest.product.business;
+package com.cdy.ecommerce.usecase.legacy.springbootTest.product.business;
 
 //import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 //import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.StockRepository;

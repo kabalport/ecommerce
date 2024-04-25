@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.usecase.account;
+package com.cdy.ecommerce.account;
 
 
 import com.cdy.ecommerce.ecommerce.admin.v1.account.controller.AccountDTO;

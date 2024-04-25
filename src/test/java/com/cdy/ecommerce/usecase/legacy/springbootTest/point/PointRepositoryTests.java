@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.legacy.springbootTest.point;
+package com.cdy.ecommerce.usecase.legacy.springbootTest.point;
 
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 import com.cdy.ecommerce.ecommerce.domain.member.business.repository.MemberReaderRepository;

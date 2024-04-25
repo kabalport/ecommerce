@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.legacy.springbootTest.product;
+package com.cdy.ecommerce.usecase.legacy.springbootTest.product;
 
 import com.cdy.ecommerce.ecommerce.domain.product.business.model.Product;
 import com.cdy.ecommerce.ecommerce.domain.product.business.model.ProductStock;

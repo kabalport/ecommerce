@@ -1,4 +1,4 @@
-package com.cdy.ecommerce.usecase.account.stub;
+package com.cdy.ecommerce.account.stub;
 
 import com.cdy.ecommerce.ecommerce.admin.v1.account.controller.AccountDTO;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;

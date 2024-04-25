@@ -6,6 +6,9 @@ import com.cdy.ecommerce.ecommerce.domain.product.business.model.ProductStock;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repository.IProductManagerRepository;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repository.IProductReaderRepository;
 import com.cdy.ecommerce.ecommerce.domain.product.business.repository.IProductStockRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.LockModeType;
+import jakarta.persistence.PersistenceContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +24,8 @@ public class ProductService {
     private final IProductStockRepository productStockRepository;
     private final IProductReaderRepository productReaderRepository;
     private final IProductManagerRepository productManagerRepository;
-
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public ProductService(ProductValidator productValidator, IProductStockRepository productStockRepository, IProductReaderRepository productReaderRepository, IProductManagerRepository productManagerRepository) {
         this.productStockRepository = productStockRepository;
@@ -30,10 +34,34 @@ public class ProductService {
         this.productManagerRepository = productManagerRepository;
     }
 
+
+    public ProductStock findStockByProductId(Long productId) {
+        return productStockRepository.findByProductId(productId)
+                .orElseThrow(() -> new IllegalStateException("No stock found for product ID: " + productId));
+    }
+
+    // LockHandler 내부 클래스 정의
+    private class LockHandler {
+        /**
+         * 비관적 락을 사용하여 상품에 대한 락을 획득합니다.
+         * @param productId 상품 ID
+         */
+        void lockProduct(Long productId) {
+            Product product = entityManager.find(Product.class, productId, LockModeType.PESSIMISTIC_WRITE);
+            if (product == null) {
+                throw new ProductException("Product not found with ID: " + productId);
+            }
+        }
+    }
+    private final LockHandler lockHandler = new LockHandler();
+
+
+
+
     public void decreaseStock(Long productId, int quantity) {
+        lockHandler.lockProduct(productId);
         ProductStock productStock = productStockRepository.findByProductId(productId)
                 .orElseThrow(() -> new IllegalStateException("Stock not found for product: " + productId));
-
         productStock.decrease(quantity);
         productStockRepository.save(productStock);
     }
@@ -52,7 +80,8 @@ public class ProductService {
             // 상품유무조회
             Optional<Product> result = productReaderRepository.selectOne(productId);
             // 상품유무결과
-            return result.orElseThrow(()->new ProductException("상품정보가 없습니다. 요청상품아이디: "+ productId));
+            return result.filter(product -> !product.isDelFlag())
+                    .orElseThrow(() -> new ProductException("Product not found or deleted: " + productId));
         } catch (Exception e) {
             log.error("상품 조회 중 오류 발생: {}", e.getMessage());
             throw new ProductException("상품 조회 중 오류 발생", e);
@@ -111,18 +140,14 @@ public class ProductService {
      * @return
      */
     public boolean deleteProduct(Long productId) {
-        try {
-            Optional<Product> optionalProduct = productReaderRepository.selectOne(productId);
-            if (optionalProduct.isPresent() && !optionalProduct.get().isDelFlag()) {
-                Product product = optionalProduct.get();
-                product.setDelFlag(true);
-                productManagerRepository.save(product);
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            log.error("상품 삭제 중 오류 발생: {}", e.getMessage());
-            throw new ProductException("상품 삭제 중 오류 발생", e);
+        Optional<Product> optionalProduct = productReaderRepository.selectOne(productId);
+        if (optionalProduct.isPresent() && !optionalProduct.get().isDelFlag()) {
+            Product product = optionalProduct.get();
+            product.setDelFlag(true);
+            productManagerRepository.save(product);
+            return true;
         }
+        return false;
     }
+
 }
