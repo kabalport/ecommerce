@@ -4,7 +4,7 @@ import com.cdy.ecommerce.ecommerce.api.v1.account.usecase.GetBalanceUseCase;
 import com.cdy.ecommerce.ecommerce.domain.account.business.components.AccountReader;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
 import com.cdy.ecommerce.ecommerce.domain.member.business.component.MemberReader;
-import com.cdy.ecommerce.usecase.account.stub.AccountSteps;
+import com.cdy.ecommerce.usecase.account.stub.AccountFixture;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,8 +32,8 @@ class GetBalanceUseCaseTest {
     @DisplayName("잔고를조회합니다.")
     void 잔고조회(){
         //given
-        var expectMember = AccountSteps.givenMember();
-        var expectAccount = AccountSteps.expectAccount();
+        var expectMember = AccountFixture.givenMember();
+        var expectAccount = AccountFixture.expectAccount();
         Mockito.when(memberReader.read(expectMember.getUserId())).thenReturn(expectMember);
         Mockito.when(accountReader.read(expectMember)).thenReturn(expectAccount);
         //when

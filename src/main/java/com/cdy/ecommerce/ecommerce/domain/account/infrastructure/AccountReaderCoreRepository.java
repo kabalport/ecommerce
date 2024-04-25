@@ -14,6 +14,7 @@ public class AccountReaderCoreRepository implements IAccountReaderRepository {
     private IAccountJpaRepository accountJpaRepository;
     @Override
     public Optional<Account> findAccount(String userId) {
+        // 조회
         return accountJpaRepository.findByUserId(userId);
     }
 }

@@ -29,5 +29,6 @@ public class ProductAdminController {
     private ProductAdminDTO.Response entityToDTO(Product product) {
         // 변환
         return ProductAdminDTO.Response.builder().id(product.getId()).name(product.getName()).price(product.getPrice()).build();
+        
     }
 }

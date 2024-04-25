@@ -51,9 +51,10 @@ public class ProductOrderAndPayUseCase {
         }).collect(Collectors.toList());
 
         // 요청된 모든 상품에 대해 총 금액 계산
-        int totalAmount = items.stream()
-                .mapToInt(item -> item.getProduct().getPrice() * item.getQuantity())
-                .sum();
+//        int totalAmount = items.stream()
+//                .mapToInt(item -> item.getProduct().getPrice() * item.getQuantity())
+//                .sum();
+        int totalAmount = 0;
 
         // 사용자 포인트 정보 조회 및 검증
         Account account = accountReader.read(member);

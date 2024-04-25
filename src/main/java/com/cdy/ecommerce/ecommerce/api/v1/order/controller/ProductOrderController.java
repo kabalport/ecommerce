@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,9 +45,10 @@ public class ProductOrderController {
                 .build();
     }
 
-    private int calculateTotalAmount(List<ProductOrderDTO.OrderItem> items) {
-        return items.stream()
-                .mapToInt(item -> item.getPrice() * item.getQuantity())
-                .sum();
+    private BigDecimal calculateTotalAmount(List<ProductOrderDTO.OrderItem> items) {
+        return null;
+//        return items.stream()
+//                .mapToInt(item -> item.getPrice() * item.getQuantity())
+//                .sum();
     }
 }

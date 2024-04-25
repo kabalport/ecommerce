@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
+
 
 @SpringBootTest
 @Slf4j
@@ -20,7 +22,7 @@ public class ProductRepositoryTests {
     public void testInsertProduct() {
         Product product = Product.builder()
                 .name("Sample Product")
-                .price(10000)
+                .price(BigDecimal.valueOf(10000))
                 .delFlag(false)
                 .build();
 
@@ -33,7 +35,7 @@ public class ProductRepositoryTests {
     public void testInsertProduct2() {
         Product product = Product.builder()
                 .name("Sample Product2")
-                .price(10000)
+                .price(BigDecimal.valueOf(10000))
                 .delFlag(false)
                 .build();
 
@@ -44,7 +46,7 @@ public class ProductRepositoryTests {
     public void testInsertHundredProduct() {
         Product product = Product.builder()
                 .name("Sample Product")
-                .price(10000)
+                .price(BigDecimal.valueOf(10000))
                 .delFlag(false)
                 .build();
 

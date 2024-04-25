@@ -10,13 +10,8 @@ import org.springframework.stereotype.Component;
 public class ProductManager {
     private final IProductManagerRepository productRepository;
 
-    public Product append(Product product) {
-        // 상품존재유무
-        Product result  = productRepository.save(product);
-        return result;
-    }
-
     public Product save(Product product) {
+        // 상품존재유무
         Product result  = productRepository.save(product);
         return result;
     }

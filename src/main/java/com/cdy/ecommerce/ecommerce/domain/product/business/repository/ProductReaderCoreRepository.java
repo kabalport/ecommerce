@@ -13,27 +13,10 @@ import java.util.Optional;
 public class ProductReaderCoreRepository implements IProductReaderRepository {
     private final IProductJpaRepository productJpaRepository;
 
-    //selectOne
-    //updateToDelete
-    //selectList
-
-    //상품조회
-
     @Override
     public Optional<Product> selectOne(Long productId) {
         return productJpaRepository.selectOne(productId);
     }
-//    //상품수정
-//    public void 상품수정(Long productId){
-//        productJpaRepository.updateToDelete(productId,false);
-//    }
-//    //상품목록
-//    public void 상품목록(Long productId){
-//        productJpaRepository.selectList(null);
-//    }
-//
-
-
 
 
 }

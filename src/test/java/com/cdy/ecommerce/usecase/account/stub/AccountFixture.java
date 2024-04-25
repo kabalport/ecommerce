@@ -2,11 +2,10 @@ package com.cdy.ecommerce.usecase.account.stub;
 
 import com.cdy.ecommerce.ecommerce.api.v1.account.controller.AccountDTO;
 import com.cdy.ecommerce.ecommerce.domain.account.business.model.Account;
-import com.cdy.ecommerce.ecommerce.domain.account.business.model.AccountTransaction;
 import com.cdy.ecommerce.ecommerce.domain.member.business.model.Member;
 
 
-public class AccountSteps {
+public class AccountFixture {
 
     public static Member givenMember(){
         return Member.builder().userId("user0").build();
