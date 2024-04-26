@@ -12,6 +12,8 @@
 
 pr 생성 빌드테스트 커버리지검증
 
+pr완료
+
 
 
 [스웨거 링크](https://kabalport.github.io/ecommerce/)
