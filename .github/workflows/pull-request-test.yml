@@ -1,0 +1,38 @@
+name: Docker Compose Build on Pull Request
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml up -d
+
+      - name: Check containers
+        run: |
+          docker-compose ps
+
+      - name: Run application tests
+        run: |
+          # Add your test scripts here
+          echo "Run your tests or other commands"
+
+      - name: Cleanup
+        run: |
+          docker-compose down
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
