@@ -1,16 +1,13 @@
 version: '3.8'
 services:
   app:
-    image: amazoncorretto:17
+    build: .
     ports:
       - "8080:8080"
-    volumes:
-      - .:/work
     environment:
-      DB_USER: myuser
-      DB_PASSWORD: mypassword
-    working_dir: /work
-    command: java -jar -Dspring.profiles.active=prod /work/app.jar
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/mydatabase
+      SPRING_DATASOURCE_USERNAME: myuser
+      SPRING_DATASOURCE_PASSWORD: mypassword
     depends_on:
       - db
 
@@ -22,5 +19,3 @@ services:
       POSTGRES_PASSWORD: mypassword
     ports:
       - "5432:5432"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
