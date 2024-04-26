@@ -1,59 +1,38 @@
-name: Pull Request Test
+name: Docker Compose Build on Pull Request
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-permissions: read-all
-
 jobs:
-  build-test:
+  build-and-test:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_DB: mydatabase
-          POSTGRES_USER: myuser
-          POSTGRES_PASSWORD: mypassword
-        ports:
-          - 5432:5432
-    permissions:
-      contents: read
-      pull-requests: write
+
     steps:
-      - name: Git Checkout
-        uses: actions/checkout@v3.0.2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            application:
-              - 'build.gradle'
-              - 'src/**'
-
-      - name: JDK 설치
-        if: steps.changes.outputs.application == 'true'
-        uses: actions/setup-java@v3
-        with:
-          java-version: 17
-          distribution: corretto
-          cache: 'gradle'
-
-      - name: Gradle Build
-        if: steps.changes.outputs.application == 'true'
+      - name: Set up Docker Compose
         run: |
-          ./gradlew build --parallel
+          docker-compose -f docker-compose.yml up -d
 
-      - name: Coverage Report
-        if: steps.changes.outputs.application == 'true'
-        uses: madrapps/jacoco-report@v1.6.1
+      - name: Check containers
+        run: |
+          docker-compose ps
+
+      - name: Run application tests
+        run: |
+          # Add your test scripts here
+          echo "Run your tests or other commands"
+
+      - name: Cleanup
+        run: |
+          docker-compose down
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: Code Coverage Report
-          update-comment: true
-          min-coverage-overall: 0
-          min-coverage-changed-files: 0
-          paths: |
-            ${{ github.workspace }}/**/build/jacoco/jacoco.xml
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
