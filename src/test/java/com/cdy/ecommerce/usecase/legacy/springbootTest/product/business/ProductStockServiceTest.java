@@ -2,6 +2,7 @@ package com.cdy.ecommerce.usecase.legacy.springbootTest.product.business;
 
 //import com.cdy.ecommerce.ecommerce.domain.product.business.models.ProductStock;
 //import com.cdy.ecommerce.ecommerce.domain.product.business.repositories.StockRepository;
+import com.cdy.ecommerce.IntegrationTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @SpringBootTest
-class ProductStockServiceTest {
+class ProductStockServiceTest extends IntegrationTest {
 //    @Autowired
 //    private StockService stockService;
     @Autowired
