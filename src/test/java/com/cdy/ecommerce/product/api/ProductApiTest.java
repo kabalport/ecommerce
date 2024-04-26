@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ProductApiTest extends ApiTest {
+class ProductApiTest {
     @Test
     void 상품등록(){
 
