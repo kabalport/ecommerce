@@ -20,7 +20,7 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ChargeUserPointUseCaseTest {
+class UserPointChargeServiceTest {
     private ChargeBalanceUseCase chargeBalanceUseCase;
     private AccountValidator accountValidator;
     private MemberReader memberReader;

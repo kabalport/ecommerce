@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * 잔고조회
  */
-class GetBalanceUseCaseTest {
+class UserPointReaderServiceTest {
     private GetBalanceUseCase getBalanceUseCase;
     private AccountReader accountReader;
     private MemberReader memberReader;

@@ -1,5 +1,6 @@
 package com.cdy.ecommerce.product.business;
 
+import com.cdy.ecommerce.IntegrationTest;
 import com.cdy.ecommerce.ecommerce.domain.product.api.ProductAdminDTO;
 import com.cdy.ecommerce.ecommerce.domain.product.business.ProductException;
 import com.cdy.ecommerce.ecommerce.domain.product.business.ProductService;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Transactional
 @ActiveProfiles("test")
-public class ProductServiceIntegrationTest {
+public class ProductServiceIntegrationTest extends IntegrationTest {
 
     @Autowired
     private ProductService productService;
