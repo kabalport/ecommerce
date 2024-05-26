@@ -1,9 +1,10 @@
 # `e-커머스 상품 주문 서비스`
 
+# api desc
 [스웨거 링크](https://kabalport.github.io/ecommerce/)
-
 docs폴더에 스웨거공식 깃레포를 가져와 압축을 풀어서 깃헙페이지로 배포하였습니다.
 
+# erd
 ```mermaid
 erDiagram
     user {
